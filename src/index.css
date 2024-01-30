@@ -1,0 +1,32 @@
+:root {
+  --primary: hsl(210, 100%, 10%);
+  --gray: hsl(0, 0%, 85%);
+  --primary-2: #a3b5c0;
+}
+/* #0e2038 */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Josefin Sans", sans-serif;
+}
+body {
+  height: 100vmin;
+  box-sizing: border-box;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
