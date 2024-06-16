@@ -7,28 +7,52 @@ import {
   ButtonLinkLogo,
   CartIcon,
   SignInIcon,
+  Circle,
+  SignOutIcon,
+  CartContainer,
 } from "./Navbar.styles"
+import { useAppDispatch } from "../../app/hooks"
+import { toggleCartHidden } from "../../redux/cart/cart.slice"
+import CartDropdown from "../cart-dropdown/cart-dropdown"
+import { useAppSelector } from "../../app/hooks"
+import { signOutStart } from "../../redux/users/user.slice"
 
 const Navbar = () => {
+  const user = useAppSelector((state) => state.user.user)
+  const dispatch = useAppDispatch()
+  const cartItems = useAppSelector((state) => state.cart.cartItems)
   return (
-    <Navigation>
-      <Container>
-        <BoxLogo>
-          <ButtonLinkLogo to="/">M&M</ButtonLinkLogo>
-        </BoxLogo>
-        <Box>
-          <ButtonLink to="/">Home</ButtonLink>
-          <ButtonLink to="/collections">Collections</ButtonLink>
-          <ButtonLink to="/trending">Trending</ButtonLink>
-          <ButtonLink to="/signIn">
-            <SignInIcon />
-          </ButtonLink>
-          <ButtonLink to="/checkout">
-            <CartIcon />
-          </ButtonLink>
-        </Box>
-      </Container>
-    </Navigation>
+    <>
+      <Navigation>
+        <Container>
+          <BoxLogo>
+            <ButtonLinkLogo to="/">DenimDreams</ButtonLinkLogo>
+          </BoxLogo>
+          <Box>
+            <ButtonLink to="/">Home</ButtonLink>
+            <ButtonLink to="/collections">Collections</ButtonLink>
+            <ButtonLink to="/trending">Trending</ButtonLink>
+            {!user ? (
+              <ButtonLink to="/sign-in">
+                <SignInIcon />
+              </ButtonLink>
+            ) : (
+              <SignOutIcon onClick={() => dispatch(signOutStart())} />
+            )}
+            <ButtonLink
+              to={user ? null : "/sign-in"}
+              onClick={() => (user ? dispatch(toggleCartHidden()) : null)}
+            >
+              <CartContainer>
+                <CartIcon />
+                {cartItems.length === 0 ? "" : <Circle />}
+              </CartContainer>
+            </ButtonLink>
+          </Box>
+        </Container>
+      </Navigation>
+      <CartDropdown />
+    </>
   )
 }
 

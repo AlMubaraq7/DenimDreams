@@ -24,7 +24,7 @@ export const TopTitle = styled.span`
   font-family: "Josefin Sans", sans-serif;
   padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
-  font-variant: small-caps;
+  text-transform: capitalize;
   font-weight: 400;
   position: absolute;
   background-color: white;

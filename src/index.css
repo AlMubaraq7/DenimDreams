@@ -1,7 +1,6 @@
 :root {
-  --primary: hsl(210, 100%, 10%);
+  --primary: hsl(205, 66%, 16%);
   --gray: hsl(0, 0%, 85%);
-  --primary-2: #a3b5c0;
 }
 /* #0e2038 */
 *,
@@ -19,14 +18,40 @@ h4 {
 body {
   height: 100vmin;
   box-sizing: border-box;
-  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+img,
+svg {
+  max-width: 100%;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--black);
+  -webkit-border-radius: 1em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: color-mix(in hsl shorter hue, var(--primary) 95%, white 5%);
+  background-clip: padding-box;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-clip: padding-box;
+  border: 3px solid rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  padding: 1rem;
+  width: 15px;
 }

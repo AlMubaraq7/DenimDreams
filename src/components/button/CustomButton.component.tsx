@@ -1,11 +1,10 @@
-import { ReactNode } from "react"
 import { Container, ButtonLink } from "./CustomButton.styles"
-interface Props {
-  children?: ReactNode
+interface ButtonProps {
+  children?: React.ReactNode
   link: string | ""
 }
 
-const CustomButton = ({ children, link }: Props) => {
+const CustomButton: React.FC<ButtonProps> = ({ children, link }) => {
   return (
     <Container>
       <ButtonLink to={link}>{children}</ButtonLink>

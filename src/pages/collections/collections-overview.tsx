@@ -4,32 +4,36 @@ import {
   TopTitle,
   BottomTitle,
 } from "./collections-overview.styles"
-import { OVERVIEW_DATA } from "../../data/collections-overview.data"
+import { getCategory } from "../../redux/items/item.slice"
 import { useLocation, useNavigate } from "react-router-dom"
-import { filterCategory } from "../../redux/collections/collectionSlice"
-import { useAppDispatch } from "../../app/hooks"
+import { useAppDispatch, useAppSelector } from "../../app/hooks"
 
 const CollectionsOverview = () => {
+  const itemsCollection = useAppSelector((state) => state.items.items)
+  let itemsArray
+  if (itemsCollection) {
+    itemsArray = Object.entries(itemsCollection)
+  }
   const navigate = useNavigate()
-  const { pathname } = useLocation()
   const dispatch = useAppDispatch()
-  const navigateToSelectedPage = (route: string) => {
+  const { pathname } = useLocation()
+  const navigateToSelectedPage = (route: string | undefined) => {
     navigate(`${pathname}/${route}`)
-    dispatch(filterCategory(route))
+    dispatch(getCategory(route))
   }
 
   return (
     <Container>
-      {OVERVIEW_DATA.map(({ id, imageURL, title, route, placement }) => (
+      {itemsArray?.map((innerArr: any) => (
         <Boxes
-          key={id}
-          $imageUrl={imageURL}
-          onClick={() => navigateToSelectedPage(route)}
+          key={innerArr[1]?.id}
+          $imageUrl={innerArr[1]?.imageUrl}
+          onClick={() => navigateToSelectedPage(innerArr[1]?.route)}
         >
-          {placement ? (
-            <BottomTitle>{title}</BottomTitle>
+          {innerArr[1]?.placement ? (
+            <BottomTitle>{innerArr[1]?.category}</BottomTitle>
           ) : (
-            <TopTitle>{title}</TopTitle>
+            <TopTitle>{innerArr[1]?.category}</TopTitle>
           )}
         </Boxes>
       ))}

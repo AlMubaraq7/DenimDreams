@@ -13,10 +13,7 @@ export const Container = styled.button`
     color: white;
   }
 `
-// export const Text = styled.span`
-//   font-family: "Josefin Sans", sans-serif;
-//   font-size: 1.15rem;
-// `
+
 export const ButtonLink = styled(Link)`
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.15rem;
