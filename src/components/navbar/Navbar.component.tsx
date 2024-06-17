@@ -3,6 +3,7 @@ import {
   Container,
   Box,
   BoxLogo,
+  Button,
   ButtonLink,
   ButtonLinkLogo,
   CartIcon,
@@ -14,11 +15,12 @@ import {
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { toggleCartHidden } from "../../redux/cart/cart.slice"
 import CartDropdown from "../cart-dropdown/cart-dropdown"
-
 import { signOutStart } from "../../redux/users/user.slice"
+import { useNavigate } from "react-router-dom"
 
 const Navbar = () => {
   const user = useAppSelector((state) => state.user.user)
+  const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const cartItems = useAppSelector((state) => state.cart.cartItems)
   return (
@@ -39,15 +41,16 @@ const Navbar = () => {
             ) : (
               <SignOutIcon onClick={() => dispatch(signOutStart())} />
             )}
-            <ButtonLink
-              to={user ? "" : "/sign-in"}
-              onClick={() => (user ? dispatch(toggleCartHidden()) : null)}
+            <Button
+              onClick={() =>
+                user ? dispatch(toggleCartHidden()) : navigate("/sign-in")
+              }
             >
               <CartContainer>
                 <CartIcon />
                 {user && cartItems.length !== 0 ? <Circle /> : ""}
               </CartContainer>
-            </ButtonLink>
+            </Button>
           </Box>
         </Container>
       </Navigation>

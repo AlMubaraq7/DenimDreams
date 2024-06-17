@@ -33,6 +33,13 @@ export const ButtonLink = styled(Link)`
   letter-spacing: 0.5px;
   color: black;
 `
+export const Button = styled.button`
+  font-size: 1.55rem;
+  cursor: pointer;
+  color: black;
+  background-color: white;
+  border: none;
+`
 export const ButtonLinkLogo = styled(ButtonLink)`
   font-size: 2.25rem;
   color: var(--primary);
