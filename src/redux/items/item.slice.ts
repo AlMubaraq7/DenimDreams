@@ -5,11 +5,13 @@ import { findCategory } from "./item.utils"
 interface CollectionState {
   items: Categories | null
   selectedItem: null | Category
+  isFetching: boolean
   error: any
 }
 const initialState: CollectionState = {
   items: null,
   selectedItem: null,
+  isFetching: false,
   error: null,
 }
 export const itemSlice = createSlice({
@@ -19,18 +21,23 @@ export const itemSlice = createSlice({
     fetchCollectionStart: (state) => {
       return {
         ...state,
+        items: null,
+        selectedItem: null,
+        isFetching: true,
       }
     },
     fetchCollectionSuccess: (state, action) => {
       return {
         ...state,
         items: action.payload,
+        isFetching: false,
       }
     },
     fetchCollectionFailure: (state, action) => {
       return {
         ...state,
         error: action.payload,
+        isFetching: false,
       }
     },
     getCategory: (state, action) => {

@@ -27,14 +27,17 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useNavigate } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { PuffLoader } from "react-spinners"
+import Loading from "../loading/Loading.component"
+
 const SignIn = () => {
   type Variant = "Login" | "Register"
 
   // HOOKS
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const { user, isAuthenticating } = useAppSelector((state) => state.user)
+  const { user, isAuthenticating, error } = useAppSelector(
+    (state) => state.user,
+  )
   const [variant, setVariant] = useState<Variant>("Login")
   const [passwordMismatch, setPasswordMismatch] = useState<boolean>(false)
   const [disabled, setDisabled] = useState<boolean>(false)
@@ -90,6 +93,7 @@ const SignIn = () => {
     switch (variant) {
       case "Login":
         dispatch(emailSignInStart({ email, password }))
+        console.log(error)
         navigate("/collections")
         break
       case "Register":
@@ -108,13 +112,7 @@ const SignIn = () => {
   return (
     <Box>
       {isAuthenticating ? (
-        <LoadingContainer>
-          <PuffLoader
-            color="hsl(205, 66%, 16%)"
-            size={150}
-            speedMultiplier={1.5}
-          />
-        </LoadingContainer>
+        <Loading />
       ) : (
         <Container>
           <FormContainer onSubmit={handleSubmit(onSubmit)}>

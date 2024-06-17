@@ -11,10 +11,10 @@ import {
   SignOutIcon,
   CartContainer,
 } from "./Navbar.styles"
-import { useAppDispatch } from "../../app/hooks"
+import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { toggleCartHidden } from "../../redux/cart/cart.slice"
 import CartDropdown from "../cart-dropdown/cart-dropdown"
-import { useAppSelector } from "../../app/hooks"
+
 import { signOutStart } from "../../redux/users/user.slice"
 
 const Navbar = () => {
@@ -40,12 +40,12 @@ const Navbar = () => {
               <SignOutIcon onClick={() => dispatch(signOutStart())} />
             )}
             <ButtonLink
-              to={user ? null : "/sign-in"}
+              to={user ? "" : "/sign-in"}
               onClick={() => (user ? dispatch(toggleCartHidden()) : null)}
             >
               <CartContainer>
                 <CartIcon />
-                {cartItems.length === 0 ? "" : <Circle />}
+                {user && cartItems.length !== 0 ? <Circle /> : ""}
               </CartContainer>
             </ButtonLink>
           </Box>

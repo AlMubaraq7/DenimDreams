@@ -16,12 +16,13 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  User,
 } from "firebase/auth"
 import { auth, createUserDoc } from "../../firebase/firebase.utils"
 import { getDoc } from "firebase/firestore"
 import { emailSignIn, emailSignUp } from "../../utils"
 
-export function* getSnapshotFromUserAuth(userAuth): Generator {
+export function* getSnapshotFromUserAuth(userAuth: User): Generator {
   try {
     const userRef: any = yield call(createUserDoc, userAuth)
     const userSnapshot: any = yield getDoc(userRef)
@@ -32,7 +33,7 @@ export function* getSnapshotFromUserAuth(userAuth): Generator {
       }),
     )
   } catch (error) {
-    console.log(error)
+    yield put(onFailure(error))
   }
 }
 export function* signUp({
@@ -65,7 +66,6 @@ export function* signInWithEmail({
       password,
     )
     const user: any = yield userCredential.user
-    yield put(signUpSuccess(user))
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
     yield put(onFailure(error))
