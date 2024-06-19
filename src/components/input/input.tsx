@@ -9,6 +9,7 @@ interface InputProps {
   required?: boolean
   register: UseFormRegister<FormType>
   disabled: boolean
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
 }
 const Input: React.FC<InputProps> = ({
   label,
@@ -17,6 +18,7 @@ const Input: React.FC<InputProps> = ({
   required,
   disabled,
   type,
+  onChange,
 }) => {
   return (
     <>
@@ -27,6 +29,7 @@ const Input: React.FC<InputProps> = ({
         {...register(id, { required })}
         placeholder={label}
         disabled={disabled}
+        onChange={onChange}
       />
     </>
   )

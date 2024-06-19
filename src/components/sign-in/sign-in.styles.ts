@@ -7,9 +7,7 @@ export const Box = styled.div`
   align-items: center;
   margin-top: 2rem;
 `
-export const LoadingContainer = styled.div`
-  margin-top: 6rem;
-`
+
 export const Container = styled.div`
   display: flex;
   gap: 1rem;

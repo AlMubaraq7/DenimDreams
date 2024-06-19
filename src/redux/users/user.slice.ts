@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { FirebaseError } from "firebase/app"
-import { User } from "firebase/auth"
+import { UserType } from "../../utils"
 interface UserState {
-  user: null | User
+  user: UserType
   isAuthenticating: boolean
   error: null | FirebaseError
 }
@@ -25,15 +25,12 @@ export const userSlice = createSlice({
     emailSignInStart: (state, action) => {
       return {
         ...state,
-        user: null,
         isAuthenticating: true,
-        error: null,
       }
     },
     googleSignInStart: (state) => {
       return {
         ...state,
-        error: null,
         isAuthenticating: true,
       }
     },

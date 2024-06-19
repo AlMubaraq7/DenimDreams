@@ -55,16 +55,3 @@ const CollectionsOverview = () => {
 }
 
 export default CollectionsOverview
-// {itemsArray?.map((innerArr: any) => (
-//   <Boxes
-//     key={innerArr[1]?.id}
-//     $imageUrl={innerArr[1]?.imageUrl}
-//     onClick={() => navigateToSelectedPage(innerArr[1]?.route)}
-//   >
-//     {innerArr[1]?.placement ? (
-//       <BottomTitle>{innerArr[1]?.category}</BottomTitle>
-//     ) : (
-//       <TopTitle>{innerArr[1]?.category}</TopTitle>
-//     )}
-//   </Boxes>
-// ))}

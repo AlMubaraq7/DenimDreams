@@ -47,7 +47,6 @@ export function* signUp({
       password,
     )
     const user = userCredential.user
-    yield put(signUpSuccess(user))
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
     yield put(onFailure(error))

@@ -5,7 +5,7 @@ export interface ClothingItem {
   name: string
   price: number
   imageUrl: string
-  quantity?: number | 0
+  quantity: number | 0
 }
 export interface Subcategory {
   name: string

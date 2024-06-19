@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Container,
-  LoadingContainer,
   ErrorContainer,
   ErrorMessage,
   Form,
@@ -18,7 +17,7 @@ import {
   GithubIcon,
 } from "./sign-in.styles"
 import { SubmitHandler, useForm, FieldValues } from "react-hook-form"
-import { useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import {
   signUpStart,
   emailSignInStart,
@@ -28,20 +27,32 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useNavigate } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import Loading from "../loading/Loading.component"
+import { UserType } from "../../utils"
 
 const SignIn = () => {
   type Variant = "Login" | "Register"
-
   // HOOKS
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const { user, isAuthenticating, error } = useAppSelector(
-    (state) => state.user,
-  )
+  const { user, isAuthenticating } = useAppSelector((state) => state.user)
   const [variant, setVariant] = useState<Variant>("Login")
   const [passwordMismatch, setPasswordMismatch] = useState<boolean>(false)
   const [disabled, setDisabled] = useState<boolean>(false)
-  // console.log(user)
+
+  // HANDLE ROUTING ON USER CHANGE
+  // MEMOIZE FUNCTION
+  const navigateOnUserChange = useCallback((user: UserType) => {
+    if (user) {
+      navigate("/collections")
+    }
+  }, [])
+
+  // ROUTES ON USER CHANGE
+  useEffect(() => {
+    navigateOnUserChange(user)
+    setDisabled(false)
+  }, [navigateOnUserChange, user])
+
   // FORM VALIDATION
   const formSchema = z.object({
     email: z.string().email({
@@ -72,6 +83,7 @@ const SignIn = () => {
     register,
     handleSubmit,
     getValues,
+    resetField,
     formState: { errors },
   } = useForm<FormType>({
     defaultValues: {
@@ -81,26 +93,28 @@ const SignIn = () => {
     },
     resolver: zodResolver(formSchema),
   })
+  const resetOnSwitch = (variant: Variant) => {
+    setVariant(variant)
+    resetField("confirmPassword")
+  }
   //
   // SIGN IN FUNCTIONS
   const googleSignInAndNavigate = () => {
     dispatch(googleSignInStart())
-    navigate("/collections")
   }
   const onSubmit: SubmitHandler<FieldValues> = async () => {
     //TODO: HANDLE ERROR FOR INVALID AUTH
     const { email, password, confirmPassword } = getValues()
     switch (variant) {
       case "Login":
+        setDisabled(true)
         dispatch(emailSignInStart({ email, password }))
-        console.log(error)
-        navigate("/collections")
         break
       case "Register":
         if (password === confirmPassword) {
           setPasswordMismatch(false)
+          setDisabled(true)
           dispatch(signUpStart({ email, password }))
-          navigate("/collections")
         } else {
           setPasswordMismatch(true)
         }
@@ -181,6 +195,7 @@ const SignIn = () => {
                     required
                     disabled={disabled}
                     type="password"
+                    onChange={() => setPasswordMismatch(false)}
                   />
                   {errors.confirmPassword ? (
                     <ErrorContainer>
@@ -192,6 +207,7 @@ const SignIn = () => {
                     <ErrorContainer
                       style={{
                         opacity: "0",
+                        display: "none",
                       }}
                     ></ErrorContainer>
                   )}
@@ -226,8 +242,8 @@ const SignIn = () => {
             <Button
               onClick={() =>
                 variant === "Login"
-                  ? setVariant("Register")
-                  : setVariant("Login")
+                  ? resetOnSwitch("Register")
+                  : resetOnSwitch("Login")
               }
             >
               {variant === "Login" ? "SIGN UP" : "SIGN IN"}
