@@ -33,7 +33,6 @@ const Navbar = () => {
           <Box>
             <ButtonLink to="/">Home</ButtonLink>
             <ButtonLink to="/collections">Collections</ButtonLink>
-            <ButtonLink to="/trending">Trending</ButtonLink>
             {!user ? (
               <ButtonLink to="/sign-in">
                 <SignInIcon />

@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { FirebaseError } from "firebase/app"
 import { UserType } from "../../utils"
 interface UserState {
   user: UserType
   isAuthenticating: boolean
-  error: null | FirebaseError
+  error: any
 }
 
 const initialState: UserState = {

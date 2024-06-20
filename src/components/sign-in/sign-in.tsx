@@ -5,7 +5,7 @@ import {
   Button,
   Container,
   ErrorContainer,
-  ErrorMessage,
+  ZodMessage,
   Form,
   FormContainer,
   Heading,
@@ -15,6 +15,7 @@ import {
   IconContainer,
   GoogleIcon,
   GithubIcon,
+  InvisibleErrorContainer,
 } from "./sign-in.styles"
 import { SubmitHandler, useForm, FieldValues } from "react-hook-form"
 import { useCallback, useEffect, useState } from "react"
@@ -28,29 +29,38 @@ import { useNavigate } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import Loading from "../loading/Loading.component"
 import { UserType } from "../../utils"
+import FirebaseErrorMessage from "./error"
 
 const SignIn = () => {
   type Variant = "Login" | "Register"
   // HOOKS
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const { user, isAuthenticating } = useAppSelector((state) => state.user)
+  const { user, isAuthenticating, error } = useAppSelector(
+    (state) => state.user,
+  )
   const [variant, setVariant] = useState<Variant>("Login")
   const [passwordMismatch, setPasswordMismatch] = useState<boolean>(false)
   const [disabled, setDisabled] = useState<boolean>(false)
+  const [errorMessage, setErrorMessage] = useState<any>(null)
 
   // HANDLE ROUTING ON USER CHANGE
   // MEMOIZE FUNCTION
-  const navigateOnUserChange = useCallback((user: UserType) => {
-    if (user) {
-      navigate("/collections")
-    }
-  }, [])
+  const navigateOnUserChange = useCallback(
+    (user: UserType) => {
+      if (user) {
+        navigate("/collections")
+        setErrorMessage(null)
+      } else if (error) {
+        setErrorMessage(error.code)
+      }
+    },
+    [error],
+  )
 
   // ROUTES ON USER CHANGE
   useEffect(() => {
     navigateOnUserChange(user)
-    setDisabled(false)
   }, [navigateOnUserChange, user])
 
   // FORM VALIDATION
@@ -95,7 +105,10 @@ const SignIn = () => {
   })
   const resetOnSwitch = (variant: Variant) => {
     setVariant(variant)
+    resetField("email")
+    resetField("password")
     resetField("confirmPassword")
+    setErrorMessage(null)
   }
   //
   // SIGN IN FUNCTIONS
@@ -109,12 +122,15 @@ const SignIn = () => {
       case "Login":
         setDisabled(true)
         dispatch(emailSignInStart({ email, password }))
+        setDisabled(false)
+        console.log(errorMessage)
         break
       case "Register":
         if (password === confirmPassword) {
           setPasswordMismatch(false)
           setDisabled(true)
           dispatch(signUpStart({ email, password }))
+          setDisabled(false)
         } else {
           setPasswordMismatch(true)
         }
@@ -156,14 +172,10 @@ const SignIn = () => {
               />
               {errors.email ? (
                 <ErrorContainer>
-                  <ErrorMessage>{errors.email.message}</ErrorMessage>
+                  <ZodMessage>{errors.email.message}</ZodMessage>
                 </ErrorContainer>
               ) : (
-                <ErrorContainer
-                  style={{
-                    opacity: "0",
-                  }}
-                ></ErrorContainer>
+                <InvisibleErrorContainer />
               )}
               <Input
                 id="password"
@@ -175,14 +187,10 @@ const SignIn = () => {
               />
               {errors.password ? (
                 <ErrorContainer>
-                  <ErrorMessage>{errors.password.message}</ErrorMessage>
+                  <ZodMessage>{errors.password.message}</ZodMessage>
                 </ErrorContainer>
               ) : (
-                <ErrorContainer
-                  style={{
-                    opacity: "0",
-                  }}
-                ></ErrorContainer>
+                <InvisibleErrorContainer />
               )}
               {variant === "Login" ? (
                 ""
@@ -199,32 +207,26 @@ const SignIn = () => {
                   />
                   {errors.confirmPassword ? (
                     <ErrorContainer>
-                      <ErrorMessage>
-                        {errors.confirmPassword.message}
-                      </ErrorMessage>
+                      <ZodMessage>{errors.confirmPassword.message}</ZodMessage>
                     </ErrorContainer>
                   ) : (
-                    <ErrorContainer
-                      style={{
-                        opacity: "0",
-                        display: "none",
-                      }}
-                    ></ErrorContainer>
+                    <InvisibleErrorContainer />
                   )}
                   {passwordMismatch ? (
                     <ErrorContainer>
-                      <ErrorMessage>Password Mismatch</ErrorMessage>
+                      <ZodMessage>Password Mismatch</ZodMessage>
                     </ErrorContainer>
                   ) : (
-                    <ErrorContainer
-                      style={{
-                        opacity: "0",
-                      }}
-                    ></ErrorContainer>
+                    <InvisibleErrorContainer />
                   )}
                 </>
               )}
-              <Button type="submit" $submit>
+              <ErrorContainer>
+                <FirebaseErrorMessage
+                  errorMessage={errorMessage}
+                ></FirebaseErrorMessage>
+              </ErrorContainer>
+              <Button type="submit" $submit disabled={disabled}>
                 {variant === "Login" ? "SIGN IN" : "SIGN UP"}
               </Button>
             </Form>

@@ -21,17 +21,15 @@ const Input: React.FC<InputProps> = ({
   onChange,
 }) => {
   return (
-    <>
-      <StyledInput
-        id={id}
-        type={type}
-        autoComplete={id}
-        {...register(id, { required })}
-        placeholder={label}
-        disabled={disabled}
-        onChange={onChange}
-      />
-    </>
+    <StyledInput
+      id={id}
+      type={type}
+      autoComplete={id}
+      {...register(id, { required })}
+      placeholder={label}
+      disabled={disabled}
+      onChange={onChange}
+    />
   )
 }
 

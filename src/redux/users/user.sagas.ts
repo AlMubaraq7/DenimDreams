@@ -52,9 +52,7 @@ export function* signUp({
     yield put(onFailure(error))
   }
 }
-// export function* signInAfterSignUp() {
 
-// }
 export function* signInWithEmail({
   payload: { email, password },
 }: PayloadAction<emailSignIn>): Generator {
@@ -83,7 +81,6 @@ export function* signInWithGoogle(): Generator {
     yield put(onFailure(error))
   }
 }
-// export function* isUserAuthenticated(): Generator {}
 
 export function* logOut(): Generator {
   try {

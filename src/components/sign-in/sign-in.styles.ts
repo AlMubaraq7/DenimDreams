@@ -67,7 +67,10 @@ export const ErrorContainer = styled.div`
   width: 120%;
   transition: all 250ms linear;
 `
-export const ErrorMessage = styled.span`
+export const InvisibleErrorContainer = styled(ErrorContainer)`
+  opacity: 0;
+`
+export const ZodMessage = styled.span`
   color: red;
   font-size: 0.85rem;
 `
