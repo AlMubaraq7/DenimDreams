@@ -44,6 +44,12 @@ export const CartItemPrice = styled.span`
   font-size: 0.9rem;
   font-weight: 700;
 `
+export const CartEmptyMessage = styled.span`
+  color: darkgray;
+  font-size: 1.25rem;
+  margin: 7.5rem auto;
+`
+
 export const CheckoutBtn = styled(Link)`
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.3rem;

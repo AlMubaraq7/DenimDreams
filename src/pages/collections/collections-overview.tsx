@@ -8,6 +8,7 @@ import { getCategory } from "../../redux/items/item.slice"
 import { useLocation, useNavigate } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import Loading from "../../components/loading/Loading.component"
+import { Helmet } from "react-helmet-async"
 
 const CollectionsOverview = () => {
   const { items, isFetching } = useAppSelector((state) => state.items)
@@ -29,6 +30,20 @@ const CollectionsOverview = () => {
 
   return (
     <>
+      <Helmet>
+        <title>
+          Explore Our Collections | Trendy Denim Fashion for Men and Women
+        </title>
+        <meta
+          property="og:title"
+          content="Explore Our Collections | Trendy Denim Fashion for Men and Women"
+        />
+        <meta
+          property="og:description"
+          content="Browse our curated collections of fashionable clothing for men and women. From Denim tops to bottoms to accessories, find the perfect pieces to mix and match your unique style."
+        />
+        <meta property="og:image" content="../../assets/meta/collections.png" />
+      </Helmet>
       {isFetching ? (
         <Loading />
       ) : (

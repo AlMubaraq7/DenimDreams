@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom"
 import { Provider } from "react-redux"
 import { store, persistor } from "./app/store"
 import { PersistGate } from "redux-persist/integration/react"
+import { HelmetProvider } from "react-helmet-async"
 import App from "./App"
 import "./index.css"
 
@@ -12,7 +13,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
-          <App />
+          <HelmetProvider>
+            <App />
+          </HelmetProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>

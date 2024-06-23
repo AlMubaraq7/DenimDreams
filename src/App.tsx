@@ -6,17 +6,8 @@ import SignIn from "./components/sign-in/sign-in"
 import Checkout from "./pages/checkout/checkout"
 import { Routes, Route } from "react-router-dom"
 import "./App.css"
-import { useEffect, useState } from "react"
-import { auth, getCurrentUser } from "./firebase/firebase.utils"
-import { UserType } from "./utils"
-import { fetchCollectionStart } from "./redux/items/item.slice"
-import { useAppDispatch } from "./app/hooks"
+
 function App() {
-  const dispatch = useAppDispatch()
-  useEffect(() => {
-    // addCollectionsAndItems("collections", clothingCategories)
-    dispatch(fetchCollectionStart())
-  }, [])
   return (
     <>
       <Navbar />

@@ -4,7 +4,7 @@ interface ErrorProps {
   errorMessage: any
 }
 const FirebaseErrorMessage = ({ errorMessage }: ErrorProps) => {
-  console.log(errorMessage)
+  // console.log(errorMessage)
   return (
     <>
       {errorMessage === "auth/invalid-credential" ? (

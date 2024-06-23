@@ -76,51 +76,59 @@ const clothingCategories = {
         items: [
           {
             id: 9,
-            name: "Slim-fit Jeans",
-            price: 49.99,
-            imageUrl: "https://example.com/images/slim-jeans.jpg",
+            name: "Denim Bootcut Jeans",
+            price: 50,
+            imageUrl:
+              "https://cdn-images.farfetch-contents.com/23/48/84/36/23488436_53446542_480.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 10,
-            name: "Chino Shorts",
-            price: 34.95,
-            imageUrl: "https://example.com/images/chino-shorts.jpg",
+            name: "Denim Shorts",
+            price: 35,
+            imageUrl:
+              "https://nz.lionessfashion.com/cdn/shop/files/20_12_23_LIONESS_GM_JAN2024_GhostMannequin_JAN_113copy_504x733.jpg?v=1711432992?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 11,
-            name: "Slim-fit Jeans",
-            price: 49.99,
-            imageUrl: "https://example.com/images/slim-jeans.jpg",
+            name: "Denim Tapered Jeans",
+            price: 75,
+            imageUrl:
+              "https://di2ponv0v5otw.cloudfront.net/posts/2023/06/19/649098f434e25340963a4100/m_6490990424237a58b15da113.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 12,
-            name: "Chino Shorts",
-            price: 34.95,
-            imageUrl: "https://example.com/images/chino-shorts.jpg",
+            name: "Denim Rugged Jeans",
+            price: 60,
+            imageUrl:
+              "https://images.squarespace-cdn.com/content/v1/6436e68b3e41f224b8b0a966/1681319648623-NAVCPURUSJB5VXGRE1B2/CASSIE_PALOMA_6376+%281%29+%281%29.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 13,
-            name: "Slim-fit Jeans",
-            price: 49.99,
-            imageUrl: "https://example.com/images/slim-jeans.jpg",
+            name: "Denim Cargo Shorts",
+            price: 50,
+            imageUrl:
+              "https://i.ebayimg.com/thumbs/images/g/YCQAAOSwz3pmKM8d/s-l1200.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 14,
-            name: "Chino Shorts",
-            price: 34.95,
-            imageUrl: "https://example.com/images/chino-shorts.jpg",
+            name: "Denim Hip-Hop Jeans",
+            price: 100,
+            imageUrl:
+              "https://ae01.alicdn.com/kf/HTB1TF5qXu6sK1RjSsrbq6xbDXXaN.jpg_640x640Q90.jpg_.webp?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 15,
-            name: "Slim-fit Jeans",
-            price: 49.99,
-            imageUrl: "https://example.com/images/slim-jeans.jpg",
+            name: "Denim Jogger Jeans",
+            price: 70,
+            imageUrl:
+              "https://img.tatacliq.com/images/i7/437Wx649H/MP000000011544101_437Wx649H_202112222357121.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 16,
-            name: "Slim-fit Jeans",
-            price: 49.99,
-            imageUrl: "https://example.com/images/slim-jeans.jpg",
+            name: "Denim Patchwork Jeans M",
+            price: 100,
+            imageUrl:
+              "https://remygirlreworks.com/cdn/shop/products/PhotoRoom_20220128_133535_grande.jpg?v=1643396011?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
         ],
       },
@@ -130,7 +138,7 @@ const clothingCategories = {
     id: 2,
     category: "womens",
     imageUrl:
-      "https://images.pexels.com/photos/6765182/pexels-photo-6765182.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/6765182/pexels-photo-6765182.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1&lazy=load",
     route: "womens",
     placement: false,
     subcategories: [
@@ -141,7 +149,7 @@ const clothingCategories = {
           {
             id: 17,
             name: "Denim Ruffled Top",
-            price: 45.0,
+            price: 45,
             imageUrl:
               "https://mobile.yoox.com/images/items/10/10320353LK_14_f.jpg?impolicy=crop&width=387&height=490?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
@@ -185,7 +193,7 @@ const clothingCategories = {
             name: "Denim Halter Top",
             price: 45.0,
             imageUrl:
-              "https://us.lionessfashion.com/cdn/shop/products/11_04_23_LIONESS_APR_GM_Ghost-Mannequins_APR_033_678x1186.jpg?v=1708059530?auto=compress&cs=tinysrgb&w=600&lazy=load",
+              "https://www.sagestudio.co.uk/wp-content/uploads/2020/07/TZGZ18072DB.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 24,
@@ -194,7 +202,6 @@ const clothingCategories = {
             imageUrl:
               "https://www.babeandbabble.com/cdn/shop/products/denimdress3.png?v=1604346795&width=1946?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
-          // Add more items as needed
         ],
       },
       {
@@ -202,18 +209,61 @@ const clothingCategories = {
         route: "bottoms",
         items: [
           {
-            id: 7,
-            name: "Floral Print Skirt",
-            price: 55.0,
-            imageUrl: "https://example.com/images/floral-skirt.jpg",
+            id: 25,
+            name: "Denim Mini Skirt",
+            price: 55,
+            imageUrl:
+              "https://www.gigibelle.com/cdn/shop/files/Tahlia-Denim-Mini-Skirt-Ghost_700x_a6988e2c-7024-4cd3-bf38-22528f6b8846_800x.webp?v=1698805999?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
-            id: 8,
-            name: "Skinny Jeans",
-            price: 39.95,
-            imageUrl: "https://example.com/images/skinny-jeans.jpg",
+            id: 26,
+            name: "Denim Flare Jeans",
+            price: 80,
+            imageUrl:
+              "https://images.squarespace-cdn.com/content/v1/6436e68b3e41f224b8b0a966/1681319648653-VI60MVZ9PZ2ADB7CIAOE/2707-CAMBRIDGE_4500-min.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
-          // Add more items as needed
+          {
+            id: 27,
+            name: "Denim Boyfriend Jeans",
+            price: 70,
+            imageUrl:
+              "https://www.rowiethelabel.com/cdn/shop/files/Molly-Classic-Jeans-Classic-Wash-AW24-ROWIE.jpg?v=1714959920&width=2000?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 28,
+            name: "Denim Two-Toned Jeans",
+            price: 85,
+            imageUrl:
+              "https://previews.123rf.com/images/padabed/padabed2005/padabed200500081/147179875-women-s-jeans-with-one-leg-of-the-indigo-color-and-the-other-leg-of-the-material-inside-out-isolated.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 29,
+            name: "Denim Mom Jeans",
+            price: 55,
+            imageUrl:
+              "https://thumbs.dreamstime.com/b/blue-jeans-1055770.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 30,
+            name: "Denim Patchwork Jeans W",
+            price: 100,
+            imageUrl:
+              "https://i.ebayimg.com/images/g/p~4AAOSwLRNlRom-/s-l1200.webp?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 31,
+            name: "Denim Flared Skirt",
+            price: 60,
+            imageUrl:
+              "https://cdn-images.farfetch-contents.com/22/04/97/11/22049711_51857672_600.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 32,
+            name: "Denim Long Skirt",
+            price: 85,
+            imageUrl:
+              "https://images.thebestshops.com/product_images/original/SL12263-015_01-76e885.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
         ],
       },
     ],

@@ -116,7 +116,6 @@ const SignIn = () => {
     dispatch(googleSignInStart())
   }
   const onSubmit: SubmitHandler<FieldValues> = async () => {
-    //TODO: HANDLE ERROR FOR INVALID AUTH
     const { email, password, confirmPassword } = getValues()
     switch (variant) {
       case "Login":

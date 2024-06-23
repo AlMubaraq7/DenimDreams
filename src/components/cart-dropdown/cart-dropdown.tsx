@@ -6,6 +6,7 @@ import {
   CartItemName,
   CartItemPrice,
   CartItemsContainer,
+  CartEmptyMessage,
   CheckoutBtn,
   Container,
 } from "./cart-dropdown.styles"
@@ -18,21 +19,25 @@ const CartDropdown = () => {
   const cartItems = useAppSelector((state) => state.cart.cartItems)
   return cartHidden ? (
     <Container>
-      <CartItemsContainer>
-        {cartItems.map((item) => (
-          <CartItem key={item.id}>
-            <CartItemImgContainer>
-              <CartItemImg src={item.imageUrl} />
-            </CartItemImgContainer>
-            <CartItemDetails>
-              <CartItemName>{item.name}</CartItemName>
-              <CartItemPrice>
-                {item.quantity} x ${item.price}
-              </CartItemPrice>
-            </CartItemDetails>
-          </CartItem>
-        ))}
-      </CartItemsContainer>
+      {cartItems.length === 0 ? (
+        <CartEmptyMessage>Your cart is empty</CartEmptyMessage>
+      ) : (
+        <CartItemsContainer>
+          {cartItems.map((item) => (
+            <CartItem key={item.id}>
+              <CartItemImgContainer>
+                <CartItemImg src={item.imageUrl} />
+              </CartItemImgContainer>
+              <CartItemDetails>
+                <CartItemName>{item.name}</CartItemName>
+                <CartItemPrice>
+                  {item.quantity} x ${item.price}
+                </CartItemPrice>
+              </CartItemDetails>
+            </CartItem>
+          ))}
+        </CartItemsContainer>
+      )}
       <CheckoutBtn to="/checkout" onClick={() => dispatch(toggleCartHidden())}>
         Go to checkout
       </CheckoutBtn>
