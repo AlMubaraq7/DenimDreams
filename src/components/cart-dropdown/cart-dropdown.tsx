@@ -12,18 +12,35 @@ import {
 } from "./cart-dropdown.styles"
 import { useAppSelector, useAppDispatch } from "../../app/hooks"
 import { toggleCartHidden } from "../../redux/cart/cart.slice"
+import { ClothingItem } from "../../utils"
+
+const variants = {
+  open: {
+    y: "0%",
+    opacity: 1,
+  },
+  closed: {
+    y: "-150%",
+    opacity: 0,
+    transition: {
+      type: "spring",
+      mass: 0.3,
+      velocity: 1,
+    },
+  },
+}
 
 const CartDropdown = () => {
   const dispatch = useAppDispatch()
   const cartHidden = useAppSelector((state) => state.cart.hidden)
   const cartItems = useAppSelector((state) => state.cart.cartItems)
-  return cartHidden ? (
-    <Container>
+  return (
+    <Container variants={variants} animate={cartHidden ? "closed" : "open"}>
       {cartItems.length === 0 ? (
         <CartEmptyMessage>Your cart is empty</CartEmptyMessage>
       ) : (
         <CartItemsContainer>
-          {cartItems.map((item) => (
+          {cartItems.map((item: ClothingItem) => (
             <CartItem key={item.id}>
               <CartItemImgContainer>
                 <CartItemImg src={item.imageUrl} />
@@ -42,8 +59,6 @@ const CartDropdown = () => {
         Go to checkout
       </CheckoutBtn>
     </Container>
-  ) : (
-    ""
   )
 }
 

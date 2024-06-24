@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { motion } from "framer-motion"
 export const SubCategoryNav = styled.div`
   width: 100%;
   display: flex;
@@ -15,7 +16,7 @@ export const SubCategoryLink = styled.span<{ $active?: boolean }>`
   color: black;
   cursor: pointer;
 `
-export const ItemContainer = styled.div`
+export const ItemContainer = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 400px;
@@ -45,7 +46,7 @@ export const ItemImg = styled.div`
   cursor: pointer;
   transition: all 200ms linear;
 `
-export const ItemBox = styled.div`
+export const ItemBox = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-around;

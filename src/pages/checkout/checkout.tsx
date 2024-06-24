@@ -19,6 +19,7 @@ import {
 } from "./checkout.styles"
 import CheckoutItem from "../../components/checkout-item/checkout.item"
 import { useAppSelector } from "../../app/hooks"
+import { routeVariants } from "../../animation"
 
 const Checkout = () => {
   const cartItems = useAppSelector((state) => state.cart.cartItems)
@@ -27,7 +28,12 @@ const Checkout = () => {
     0,
   )
   return (
-    <Container>
+    <Container
+      variants={routeVariants}
+      initial="initial"
+      animate="final"
+      exit="exit"
+    >
       {cartItems.length === 0 ? (
         <CartEmptyMessage>Your cart is currently empty</CartEmptyMessage>
       ) : (

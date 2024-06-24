@@ -1,6 +1,7 @@
+import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   width: 250px;
   height: 350px;
   border: 1px solid var(--primary);

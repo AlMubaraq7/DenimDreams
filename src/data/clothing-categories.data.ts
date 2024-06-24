@@ -97,10 +97,10 @@ const clothingCategories = {
           },
           {
             id: 12,
-            name: "Denim Rugged Jeans",
-            price: 60,
+            name: "Denim Cargo Jeans",
+            price: 70,
             imageUrl:
-              "https://images.squarespace-cdn.com/content/v1/6436e68b3e41f224b8b0a966/1681319648623-NAVCPURUSJB5VXGRE1B2/CASSIE_PALOMA_6376+%281%29+%281%29.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+              "https://d1flfk77wl2xk4.cloudfront.net/Assets/32/332/XL_p0199033232.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 13,

@@ -9,6 +9,8 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import Loading from "../../components/loading/Loading.component"
 import { Helmet } from "react-helmet-async"
+import { routeVariants } from "../../animation"
+import { motion } from "framer-motion"
 
 const CollectionsOverview = () => {
   const { items, isFetching } = useAppSelector((state) => state.items)
@@ -17,7 +19,7 @@ const CollectionsOverview = () => {
   if (itemsCollection) {
     // Converts object to array and then sorts by id
     itemsArray = Object.entries(itemsCollection).sort(
-      (a, b) => a[1].id - b[1].id,
+      (a, b) => a[1]?.id - b[1]?.id,
     )
   }
   const navigate = useNavigate()
@@ -29,7 +31,12 @@ const CollectionsOverview = () => {
   }
 
   return (
-    <>
+    <motion.div
+      variants={routeVariants}
+      initial="initial"
+      animate="final"
+      exit="exit"
+    >
       <Helmet>
         <title>
           Explore Our Collections | Trendy Denim Fashion for Men and Women
@@ -65,7 +72,7 @@ const CollectionsOverview = () => {
           })}
         </Container>
       )}
-    </>
+    </motion.div>
   )
 }
 
