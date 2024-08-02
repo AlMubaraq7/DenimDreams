@@ -1,5 +1,5 @@
-import Hero from "./Hero/Hero.component"
-import Trending from "./Trending/Trending.component"
+import Hero from "../../components/Hero/Hero.component"
+import Trending from "../../components/Trending/Trending.component"
 import { useEffect } from "react"
 // import clothingCategories from "./data/clothing-categories.data"
 import { fetchCollectionStart } from "../../redux/items/item.slice"
@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async"
 import { routeVariants } from "../../animation"
 import { motion } from "framer-motion"
 // import { addCollectionsAndItems } from "./firebase/firebase.utils"
+
 const Homepage = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
@@ -20,6 +21,7 @@ const Homepage = () => {
       initial="initial"
       animate="final"
       exit="exit"
+      transition={routeVariants.transition}
     >
       <Helmet>
         <title>DenimDreams | Embrace the Denim Lifestyle</title>

@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { Categories, Category } from "../../utils"
-import clothingCategories from "../../data/clothing-categories.data"
 import { findCategory } from "./item.utils"
 interface CollectionState {
   items: Categories | null
@@ -24,6 +23,7 @@ export const itemSlice = createSlice({
         items: null,
         selectedItem: null,
         isFetching: true,
+        error: null,
       }
     },
     fetchCollectionSuccess: (state, action) => {

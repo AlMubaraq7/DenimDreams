@@ -36,3 +36,31 @@ export const BottomTitle = styled(TopTitle)`
   top: unset;
   bottom: 0;
 `
+export const NotFoundContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  margin-top: 8rem;
+  gap: 1rem;
+`
+export const NotFoundText = styled.p`
+  font-size: 2.75rem;
+`
+export const NotFoundBtn = styled.button`
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  background: none;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+  &:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+`

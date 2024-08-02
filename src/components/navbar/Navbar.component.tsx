@@ -17,12 +17,17 @@ import { toggleCartHidden } from "../../redux/cart/cart.slice"
 import CartDropdown from "../cart-dropdown/cart-dropdown"
 import { signOutStart } from "../../redux/users/user.slice"
 import { useNavigate } from "react-router-dom"
+import { circleVariants } from "../../animation"
 
 const Navbar = () => {
   const user = useAppSelector((state) => state.user.user)
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const cartItems = useAppSelector((state) => state.cart.cartItems)
+  const { cartItems, hidden } = useAppSelector((state) => state.cart)
+  const onSignOut = () => {
+    dispatch(signOutStart())
+    !hidden && dispatch(toggleCartHidden())
+  }
   return (
     <>
       <Navigation>
@@ -38,7 +43,7 @@ const Navbar = () => {
                 <SignInIcon />
               </ButtonLink>
             ) : (
-              <SignOutIcon onClick={() => dispatch(signOutStart())} />
+              <SignOutIcon onClick={onSignOut} />
             )}
             <Button
               onClick={() =>
@@ -47,7 +52,10 @@ const Navbar = () => {
             >
               <CartContainer>
                 <CartIcon />
-                {user && cartItems.length !== 0 ? <Circle /> : ""}
+                <Circle
+                  variants={circleVariants}
+                  animate={user && cartItems.length !== 0 ? "show" : "hide"}
+                />
               </CartContainer>
             </Button>
           </Box>

@@ -89,7 +89,6 @@ export const Cancelled = styled.span`
   font-size: 0.75rem;
 `
 export const CartEmptyMessage = styled.span`
-  color: darkgray;
   font-size: 2rem;
   margin-top: 9rem;
 `

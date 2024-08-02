@@ -15,7 +15,10 @@ import {
   addItemToCart,
   reduceItemQuantity,
 } from "../../redux/cart/cart.slice"
-const CheckoutItem = ({ cartItem }) => {
+interface Props {
+  cartItem: ClothingItem
+}
+const CheckoutItem = ({ cartItem }: Props) => {
   const dispatch = useAppDispatch()
   return (
     <Container>

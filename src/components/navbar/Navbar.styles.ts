@@ -3,6 +3,7 @@ import Cart from "../../assets/cart-icon.svg"
 import SignIn from "../../assets/sign-in-icon.svg"
 import SignOut from "../../assets/sign-out-icon.svg"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 
 export const Navigation = styled.nav`
   width: 100%;
@@ -64,7 +65,7 @@ export const SignOutIcon = styled.img.attrs((props) => ({
   cursor: pointer;
   margin-bottom: 4px;
 `
-export const Circle = styled.div`
+export const Circle = styled(motion.div)`
   width: 8px;
   height: 8px;
   border-radius: 50%;

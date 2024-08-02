@@ -28,12 +28,10 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useNavigate } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import Loading from "../loading/Loading.component"
-import { UserType } from "../../utils"
+import { createFormSchema, UserType } from "../../utils"
 import FirebaseErrorMessage from "./error"
-
 const SignIn = () => {
   type Variant = "Login" | "Register"
-  // HOOKS
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const { user, isAuthenticating, error } = useAppSelector(
@@ -45,49 +43,21 @@ const SignIn = () => {
   const [errorMessage, setErrorMessage] = useState<any>(null)
 
   // HANDLE ROUTING ON USER CHANGE
-  // MEMOIZE FUNCTION
-  const navigateOnUserChange = useCallback(
-    (user: UserType) => {
-      if (user) {
-        navigate("/collections")
-        setErrorMessage(null)
-      } else if (error) {
-        setErrorMessage(error.code)
-      }
-    },
-    [error],
-  )
+  const navigateOnUserChange = useCallback((user: UserType) => {
+    if (user) {
+      navigate("/collections")
+      setErrorMessage(null)
+    } else if (error) {
+      setErrorMessage(error.code)
+    }
+  }, [])
 
-  // ROUTES ON USER CHANGE
   useEffect(() => {
     navigateOnUserChange(user)
-  }, [navigateOnUserChange, user])
+  }, [user])
 
   // FORM VALIDATION
-  const formSchema = z.object({
-    email: z.string().email({
-      message: "Enter a valid email",
-    }),
-    password: z
-      .string()
-      .min(7, {
-        message: "Password must be atleast 7 characters long",
-      })
-      .max(20, {
-        message: "Password must not exceed 20 characters",
-      }),
-    confirmPassword:
-      variant === "Register"
-        ? z
-            .string()
-            .min(7, {
-              message: "Password must be atleast 7 characters long",
-            })
-            .max(20, {
-              message: "Password must not exceed 20 characters",
-            })
-        : z.literal(""),
-  })
+  const formSchema = createFormSchema(variant)
   type FormType = z.infer<typeof formSchema>
   const {
     register,
@@ -122,7 +92,6 @@ const SignIn = () => {
         setDisabled(true)
         dispatch(emailSignInStart({ email, password }))
         setDisabled(false)
-        console.log(errorMessage)
         break
       case "Register":
         if (password === confirmPassword) {
@@ -143,8 +112,15 @@ const SignIn = () => {
       {isAuthenticating ? (
         <Loading />
       ) : (
-        <Container>
-          <FormContainer onSubmit={handleSubmit(onSubmit)}>
+        <Container data-variant={variant}>
+          <FormContainer
+            layout
+            transition={{
+              type: "spring",
+              bounce: 0.3,
+            }}
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <Heading $blue>
               {variant === "Login" ? "Sign in" : "Create Account"}
             </Heading>
@@ -230,7 +206,12 @@ const SignIn = () => {
               </Button>
             </Form>
           </FormContainer>
-          <TextContainer>
+          <TextContainer
+            layout
+            transition={{
+              ease: "anticipate",
+            }}
+          >
             <Heading>
               {" "}
               {variant === "Login" ? "Hello Friend!" : "Welcome Back!"}

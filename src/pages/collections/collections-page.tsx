@@ -64,6 +64,9 @@ const CollectionsPage = () => {
                 <ItemName>{item.name}</ItemName>
                 <ItemPrice>${item.price}</ItemPrice>
                 <AddToCart
+                  whileTap={{
+                    scale: 1.2,
+                  }}
                   onClick={() =>
                     user ? dispatch(addItemToCart(item)) : navigate("/sign-in")
                   }

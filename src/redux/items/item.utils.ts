@@ -1,3 +1,3 @@
-export const findCategory = (items, catToFind) => {
+export const findCategory = (items: any, catToFind: string) => {
   return items[catToFind]
 }

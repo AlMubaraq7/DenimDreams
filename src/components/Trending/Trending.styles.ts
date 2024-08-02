@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import Shipping from "../../../assets/free-shipping.svg"
-import SecurePay from "../../../assets/secure-payment.svg"
-import Boxed from "../../../assets/box.svg"
+import SecurePay from "../../assets/secure-payment.svg"
+import Boxed from "../../assets/box.svg"
+import Shipping from "../../assets/free-shipping.svg"
 
 export const Container = styled.section`
   display: flex;

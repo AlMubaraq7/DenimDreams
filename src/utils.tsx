@@ -1,4 +1,5 @@
 import { User } from "firebase/auth"
+import { z } from "zod"
 
 export interface ClothingItem {
   id: number
@@ -37,6 +38,34 @@ export interface emailSignIn {
 }
 
 // IMITATES THE FORM SCHEMA TYPE FROM sign-in.tsx
+export const createFormSchema = (variant: string) => {
+  const formSchema = z.object({
+    email: z.string().email({
+      message: "Enter a valid email",
+    }),
+    password: z
+      .string()
+      .min(7, {
+        message: "Password must be atleast 7 characters long",
+      })
+      .max(20, {
+        message: "Password must not exceed 20 characters",
+      }),
+    confirmPassword:
+      variant === "Register"
+        ? z
+            .string()
+            .min(7, {
+              message: "Password must be atleast 7 characters long",
+            })
+            .max(20, {
+              message: "Password must not exceed 20 characters",
+            })
+        : z.literal(""),
+  })
+  return formSchema
+}
+
 export type FormType = {
   email: string
   password: string

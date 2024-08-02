@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Google from "../../assets/google.svg"
 import Github from "../../assets/github.svg"
+import { motion } from "framer-motion"
 export const Box = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,10 +11,14 @@ export const Box = styled.div`
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: row;
   gap: 1rem;
-  border: 4px solid var(--primary);
-  border-radius: 10px;
+  border: 3px solid var(--primary);
+  border-radius: 5px;
   transition: all 200ms linear;
+  &[data-variant="Register"] {
+    flex-direction: row-reverse;
+  }
 `
 export const Form = styled.form`
   display: flex;
@@ -21,7 +26,7 @@ export const Form = styled.form`
   align-items: center;
   gap: 0.75rem;
 `
-export const FormContainer = styled.div`
+export const FormContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,9 +34,8 @@ export const FormContainer = styled.div`
   padding: 1.5rem;
   gap: 0.75rem;
   flex-basis: 100%;
-  border: none;
 `
-export const TextContainer = styled.div`
+export const TextContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,7 +44,6 @@ export const TextContainer = styled.div`
   padding: 1.5rem;
   gap: 1rem;
   flex-basis: 100%;
-  border: none;
 `
 export const Paragraph = styled.p<{ $grey?: boolean }>`
   color: ${(props) => (props.$grey ? "darkgrey" : "white")};

@@ -20,11 +20,13 @@ import {
 import CheckoutItem from "../../components/checkout-item/checkout.item"
 import { useAppSelector } from "../../app/hooks"
 import { routeVariants } from "../../animation"
+import { ClothingItem } from "../../utils"
 
 const Checkout = () => {
   const cartItems = useAppSelector((state) => state.cart.cartItems)
   const total = cartItems.reduce(
-    (accumulator, cartItem) => accumulator + cartItem.quantity * cartItem.price,
+    (accumulator: number, cartItem: ClothingItem) =>
+      accumulator + cartItem.quantity * cartItem.price,
     0,
   )
   return (
@@ -33,6 +35,7 @@ const Checkout = () => {
       initial="initial"
       animate="final"
       exit="exit"
+      transition={routeVariants.transition}
     >
       {cartItems.length === 0 ? (
         <CartEmptyMessage>Your cart is currently empty</CartEmptyMessage>
@@ -50,7 +53,7 @@ const Checkout = () => {
             </Price>
           </Header>
           <ItemsContainer>
-            {cartItems.map((item) => (
+            {cartItems.map((item: ClothingItem) => (
               <CheckoutItem key={item.id} cartItem={item} />
             ))}
           </ItemsContainer>

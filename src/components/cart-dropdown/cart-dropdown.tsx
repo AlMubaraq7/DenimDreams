@@ -24,7 +24,7 @@ const variants = {
     opacity: 0,
     transition: {
       type: "spring",
-      mass: 0.3,
+      mass: 0.8,
       velocity: 1,
     },
   },

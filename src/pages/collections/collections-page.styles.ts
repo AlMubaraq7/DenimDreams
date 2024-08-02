@@ -25,7 +25,7 @@ export const ItemContainer = styled(motion.div)`
   padding: 10px 60px;
   padding-bottom: 50px;
 `
-export const AddToCart = styled.button`
+export const AddToCart = styled(motion.button)`
   text-decoration: none;
   font-family: "Josefin Sans", sans-serif;
   font-size: 1rem;

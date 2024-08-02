@@ -19,7 +19,7 @@ export const CartItemsContainer = styled.div`
   overflow: scroll;
   flex-basis: 100%;
 `
-export const CartItem = styled.div`
+export const CartItem = styled(motion.div)`
   display: flex;
   gap: 0.25rem;
 `
@@ -46,7 +46,6 @@ export const CartItemPrice = styled.span`
   font-weight: 700;
 `
 export const CartEmptyMessage = styled.span`
-  color: darkgray;
   font-size: 1.25rem;
   margin: 7.5rem auto;
 `

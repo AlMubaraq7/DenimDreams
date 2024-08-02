@@ -17,7 +17,7 @@ import {
   ItemName,
   ItemPrice,
 } from "./Trending.styles"
-import trendingItems from "../../../data/trending.data"
+import trendingItems from "../../data/trending.data"
 const Trending = () => {
   return (
     <Container>

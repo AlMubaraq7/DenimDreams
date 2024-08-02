@@ -6,8 +6,9 @@ import {
   Paragraph,
   Circle,
 } from "./Hero.styles"
-import CustomButton from "../../../components/button/CustomButton.component"
-import hero from "../../../assets/hero.png"
+import CustomButton from "../button/CustomButton.component"
+import hero from "../../assets/hero.png"
+
 const Hero = () => {
   return (
     <Container>
