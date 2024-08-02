@@ -52,11 +52,6 @@ export const ButtonContainer = styled.div`
   justify-content: space-around;
   flex-basis: 25%;
 `
-// export const ButtonBox = styled.div`
-//   display: flex;
-//   align-items: flex-end;
-//   flex-basis: 100%;
-// `
 export const AmountBox = styled.div`
   display: flex;
   flex-direction: column;
