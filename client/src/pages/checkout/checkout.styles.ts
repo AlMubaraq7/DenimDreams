@@ -44,17 +44,24 @@ export const Total = styled.span`
 export const TotalContainer = styled.div`
   width: 100%;
   display: flex;
+  justify-content: space-around;
 `
-export const ButtonBox = styled.div`
+export const ButtonContainer = styled.div`
   display: flex;
-  align-items: flex-end;
-  flex-basis: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-basis: 25%;
 `
+// export const ButtonBox = styled.div`
+//   display: flex;
+//   align-items: flex-end;
+//   flex-basis: 100%;
+// `
 export const AmountBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  flex-basis: 100%;
+  flex-basis: 25%;
 `
 export const SubTotalBox = styled.div`
   padding: 0.75rem;
@@ -64,6 +71,9 @@ export const SubTotalBox = styled.div`
   gap: 0.5rem;
 `
 export const TotalBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.75rem;
 `
 export const TextBold = styled.span`
@@ -74,12 +84,23 @@ export const TotalNormal = styled(TextNormal)`
   font-size: 1.3rem;
 `
 export const ButtonLink = styled(Link)`
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
   border: 1px solid var(--gray);
   font-weight: bold;
   text-decoration: none;
   color: black;
+`
+export const CheckoutButton = styled.button`
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  background-color: var(--primary);
+  font-family: "Nunito", sans-serif;
+  border: none;
+  cursor: pointer;
 `
 export const Cancelled = styled.span`
   color: var(--gray);

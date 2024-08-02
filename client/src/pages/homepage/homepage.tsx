@@ -5,8 +5,6 @@ import { useEffect } from "react"
 import { fetchCollectionStart } from "../../redux/items/item.slice"
 import { useAppDispatch } from "../../app/hooks"
 import { Helmet } from "react-helmet-async"
-import { routeVariants } from "../../animation"
-import { motion } from "framer-motion"
 // import { addCollectionsAndItems } from "./firebase/firebase.utils"
 
 const Homepage = () => {
@@ -16,13 +14,7 @@ const Homepage = () => {
     dispatch(fetchCollectionStart())
   }, [])
   return (
-    <motion.div
-      variants={routeVariants}
-      initial="initial"
-      animate="final"
-      exit="exit"
-      transition={routeVariants.transition}
-    >
+    <div>
       <Helmet>
         <title>DenimDreams | Embrace the Denim Lifestyle</title>
         <meta
@@ -39,7 +31,7 @@ const Homepage = () => {
       </Helmet>
       <Hero />
       <Trending />
-    </motion.div>
+    </div>
   )
 }
 

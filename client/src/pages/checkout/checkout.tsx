@@ -6,7 +6,7 @@ import {
   Price,
   ItemsContainer,
   TotalContainer,
-  ButtonBox,
+  ButtonContainer,
   AmountBox,
   ButtonLink,
   SubTotalBox,
@@ -16,6 +16,7 @@ import {
   TotalBox,
   Cancelled,
   CartEmptyMessage,
+  CheckoutButton,
 } from "./checkout.styles"
 import CheckoutItem from "../../components/checkout-item/checkout.item"
 import { useAppSelector } from "../../app/hooks"
@@ -58,25 +59,34 @@ const Checkout = () => {
             ))}
           </ItemsContainer>
           <TotalContainer>
-            <ButtonBox>
+            <ButtonContainer>
               <ButtonLink to="/collections">
                 &#10094; &nbsp;&nbsp;Continue Shopping
               </ButtonLink>
-            </ButtonBox>
+              <CheckoutButton>Checkout</CheckoutButton>
+            </ButtonContainer>
             <AmountBox>
               <SubTotalBox>
-                <div>
-                  <TextBold>
-                    Subtotal: &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;
-                  </TextBold>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <TextBold>Subtotal:</TextBold>
                   <TextNormal>${total}</TextNormal>
                 </div>
-                <div>
-                  <TextBold>
-                    Shipping: &nbsp;&nbsp; &nbsp;&nbsp;
-                    <Cancelled>$3.99</Cancelled>
-                  </TextBold>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <TextBold>Shipping:</TextBold>
+                  &nbsp;&nbsp;
+                  <Cancelled>$3.99</Cancelled>
                   <TextNormal>$0</TextNormal>
                 </div>
               </SubTotalBox>
