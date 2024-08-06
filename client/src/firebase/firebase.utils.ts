@@ -15,10 +15,9 @@ import {
   query,
   setDoc,
 } from "firebase/firestore"
-import { Categories } from "../utils"
-
+import { Categories, UserType } from "../utils"
 const config = {
-  apiKey: "AIzaSyDQp5AF4d2LBPVYN740Zxmjszkf4-9kyR8",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "mix-and-match-517ea.firebaseapp.com",
   projectId: "mix-and-match-517ea",
   storageBucket: "mix-and-match-517ea.appspot.com",
@@ -26,6 +25,7 @@ const config = {
   appId: "1:349572030395:web:dcec0b37e9a53302f0ee9e",
   measurementId: "G-LSWT3NN7YN",
 }
+console.log(import.meta.env.VITE_FIREBASE_API_KEY)
 const app = initializeApp(config)
 export const firestore = getFirestore()
 export const auth = getAuth(app)
@@ -77,7 +77,7 @@ export const getCurrentUser = () => {
 }
 
 //DATABASE
-export const createUserDoc = async (user) => {
+export const createUserDoc = async (user: UserType) => {
   if (!user) return
   const userDoc = doc(firestore, `users/${user.uid}`)
   const snapShot = await getDoc(userDoc)
@@ -118,7 +118,7 @@ export const queryForCollections = async () => {
   querySnapshot.forEach((snap) =>
     collectionArr.push(JSON.parse(JSON.stringify(snap.data()))),
   )
-  collectionArr.forEach((item) => {
+  collectionArr.forEach((item: any) => {
     collectionObj[item.category] = item
   })
   return collectionObj

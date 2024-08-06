@@ -5,12 +5,13 @@ export const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
-  margin: -1rem auto;
+  width: 80%;
+  margin: -2rem auto;
   margin-bottom: 0;
   overflow: scroll;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   position: relative;
+  overflow-x: hidden;
 `
 
 export const Header = styled.div`
@@ -23,18 +24,18 @@ export const Header = styled.div`
   border-bottom: 1px solid var(--gray);
 `
 export const ItemsContainer = styled.div`
-  height: 265px;
+  height: 300px;
   overflow: scroll;
 `
 
 export const Product = styled.div`
-  width: 40%;
+  width: 42%;
 `
 export const Quantity = styled.div`
-  width: 25%;
+  width: 27%;
 `
 export const Price = styled.div`
-  width: 25%;
+  width: 27%;
 `
 export const Total = styled.span`
   align-self: flex-end;
@@ -49,7 +50,7 @@ export const TotalContainer = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-basis: 25%;
 `
 export const AmountBox = styled.div`
@@ -85,6 +86,7 @@ export const ButtonLink = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   color: black;
+  text-align: center;
 `
 export const CheckoutButton = styled.button`
   padding: 0.5rem 1rem;
@@ -102,7 +104,7 @@ export const Cancelled = styled.span`
   text-decoration: line-through;
   font-weight: normal;
   margin-right: 0.95rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
 `
 export const CartEmptyMessage = styled.span`
   font-size: 2rem;

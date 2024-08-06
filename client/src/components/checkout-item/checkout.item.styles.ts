@@ -14,7 +14,7 @@ export const Product = styled.div`
   align-items: center;
 `
 export const ImageContainer = styled.div`
-  width: 22%;
+  width: 18%;
   padding-right: 1.5rem;
 `
 
