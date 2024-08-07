@@ -7,6 +7,8 @@ import Checkout from "./pages/checkout/checkout"
 import { Routes, Route, useLocation } from "react-router-dom"
 import "./App.css"
 import LocationProvider from "./LocationProvider"
+import { SuccessPage } from "./pages/successPage/successPage"
+import { CancelPage } from "./pages/cancelPage/cancelPage"
 
 function App() {
   return (
@@ -31,7 +33,11 @@ function RoutesWithAnimation() {
         </Route>
       </Route>
       <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/checkout">
+        <Route index element={<Checkout />} />
+        <Route path="success" element={<SuccessPage />} />
+        <Route path="cancelled" element={<CancelPage />} />
+      </Route>
     </Routes>
   )
 }

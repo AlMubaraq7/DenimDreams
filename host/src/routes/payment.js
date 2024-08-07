@@ -20,10 +20,9 @@ paymentRouter.post("/create-payment-session", async (req, res) => {
     payment_method_types: ["card"],
     line_items: lineItems,
     mode: "payment",
-    success_url: "http://localhost:5173/collections",
-    cancel_url: "http://localhost:5173/collections/mens",
+    success_url: "http://localhost:5173/checkout/success",
+    cancel_url: "http://localhost:5173/checkout/cancelled",
   });
-  console.log(session);
   res.json({ id: session?.id });
 });
 

@@ -9,6 +9,7 @@ import {
 import { CheckoutButton } from "../../pages/checkout/checkout.styles"
 import { loadStripe } from "@stripe/stripe-js"
 import { useAppSelector } from "../../app/hooks"
+
 interface PropTypes {
   modalHidden: boolean
   setModal: () => void
@@ -56,6 +57,9 @@ export const PaymentInfo = ({ modalHidden, setModal }: PropTypes) => {
       const result = await stripe?.redirectToCheckout({
         sessionId: session.id,
       })
+      if (result?.error) {
+        console.log(result.error)
+      }
     } catch (error) {
       console.log(error)
     }

@@ -37,12 +37,19 @@ export const cartSlice = createSlice({
         cartItems: reduceItem(state.cartItems, action.payload),
       }
     },
+    clearAllItems: (state) => {
+      return {
+        ...state,
+        cartItems: [],
+      }
+    },
   },
 })
 export const {
   toggleCartHidden,
   addItemToCart,
   clearItemFromCart,
+  clearAllItems,
   reduceItemQuantity,
 } = cartSlice.actions
 export default cartSlice.reducer

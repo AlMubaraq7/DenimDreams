@@ -16,11 +16,11 @@ import { ClothingItem } from "../../utils"
 
 const variants = {
   open: {
-    y: "0%",
+    x: "0%",
     opacity: 1,
   },
   closed: {
-    y: "-150%",
+    x: "150%",
     opacity: 0,
     transition: {
       type: "spring",
