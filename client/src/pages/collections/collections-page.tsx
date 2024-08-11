@@ -46,7 +46,6 @@ const CollectionsPage = () => {
           </SubCategoryLink>
         ))}
       </SubCategoryNav>
-
       <ItemContainer
         variants={containerVariants}
         initial="initial"

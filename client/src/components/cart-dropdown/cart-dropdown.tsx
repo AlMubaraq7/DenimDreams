@@ -18,10 +18,12 @@ const variants = {
   open: {
     x: "0%",
     opacity: 1,
+    display: "block",
   },
   closed: {
     x: "150%",
     opacity: 0,
+    display: "none",
     transition: {
       type: "spring",
       mass: 0.8,

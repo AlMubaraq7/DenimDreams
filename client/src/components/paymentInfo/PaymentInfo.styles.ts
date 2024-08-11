@@ -16,7 +16,7 @@ export const Container = styled(motion.div)`
 export const Modal = styled.div`
   width: 350px;
   height: 300px;
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: white;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.35);
   position: relative;
