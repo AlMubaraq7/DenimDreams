@@ -4,7 +4,10 @@ import {
   TextBox,
   Title,
   Paragraph,
+  Image,
   Circle,
+  ImageContainer,
+  ImageBox,
 } from "./Hero.styles"
 import CustomButton from "../button/CustomButton.component"
 import hero from "../../assets/hero.png"
@@ -19,10 +22,12 @@ const Hero = () => {
           <CustomButton link="/collections">Explore now</CustomButton>
         </TextBox>
       </Box>
-      <Box>
+      <ImageBox>
         <Circle />
-        <img src={hero} alt="hero" />
-      </Box>
+        <ImageContainer>
+          <Image src={hero} alt="hero" />
+        </ImageContainer>
+      </ImageBox>
     </Container>
   )
 }

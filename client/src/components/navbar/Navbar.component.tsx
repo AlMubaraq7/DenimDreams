@@ -37,6 +37,7 @@ const Navbar = () => {
     },
     hidden: {
       opacity: 0,
+      display: "none",
       transition: {
         delay: 0.7,
       },

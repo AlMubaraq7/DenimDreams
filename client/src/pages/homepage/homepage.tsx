@@ -29,7 +29,7 @@ const Homepage = () => {
         />
         <meta property="og:image" content="../../assets/meta/homepage.png" />
       </Helmet>
-      {/* <Hero /> */}
+      <Hero />
       <Trending />
     </div>
   )

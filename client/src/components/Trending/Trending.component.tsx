@@ -21,11 +21,7 @@ import trendingItems from "../../data/trending.data"
 const Trending = () => {
   return (
     <Container>
-      <Box
-        style={{
-          gap: "3rem",
-        }}
-      >
+      <Box>
         <ExtrasBox>
           <SvgContainer>
             <ShippingSvg />

@@ -16,4 +16,8 @@ export const ButtonLink = styled(Link)`
     background-color: var(--primary);
     color: white;
   }
+  @media only screen and (max-width: 1024px) {
+    font-size: 1.05rem;
+    padding: 0.5rem 1.5rem;
+  }
 `
