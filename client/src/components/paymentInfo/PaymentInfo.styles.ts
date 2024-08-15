@@ -21,7 +21,7 @@ export const Modal = styled.div`
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.35);
   position: relative;
 `
-export const Cancel = styled.span`
+export const Close = styled.span`
   font-size: 1.5rem;
   cursor: pointer;
   margin-right: 2px;

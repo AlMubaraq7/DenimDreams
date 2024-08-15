@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { ClothingItem } from "../../utils"
 import { addItem, clearItem, reduceItem } from "./cart.utils"
+
 interface CartState {
   hidden: boolean
   cartItems: ClothingItem[]
@@ -17,6 +18,12 @@ export const cartSlice = createSlice({
       return {
         ...state,
         hidden: !state.hidden,
+      }
+    },
+    toggleCartHiddenWithPayload: (state, action: PayloadAction<boolean>) => {
+      return {
+        ...state,
+        hidden: action.payload,
       }
     },
     addItemToCart: (state, action) => {
@@ -47,6 +54,7 @@ export const cartSlice = createSlice({
 })
 export const {
   toggleCartHidden,
+  toggleCartHiddenWithPayload,
   addItemToCart,
   clearItemFromCart,
   clearAllItems,

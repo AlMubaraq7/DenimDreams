@@ -8,6 +8,7 @@ import {
   CartItemsContainer,
   CartEmptyMessage,
   CheckoutBtn,
+  Close,
   Container,
 } from "./cart-dropdown.styles"
 import { useAppSelector, useAppDispatch } from "../../app/hooks"
@@ -34,6 +35,7 @@ const variants = {
 
 const CartDropdown = () => {
   const dispatch = useAppDispatch()
+  const items = useAppSelector((state) => state.items.items)
   const cartHidden = useAppSelector((state) => state.cart.hidden)
   const cartItems = useAppSelector((state) => state.cart.cartItems)
   return (
@@ -57,9 +59,11 @@ const CartDropdown = () => {
           ))}
         </CartItemsContainer>
       )}
+
       <CheckoutBtn to="/checkout" onClick={() => dispatch(toggleCartHidden())}>
         Go to checkout
       </CheckoutBtn>
+      <Close onClick={() => dispatch(toggleCartHidden())}>X</Close>
     </Container>
   )
 }

@@ -1,5 +1,5 @@
 import {
-  Cancel,
+  Close,
   Container,
   Group,
   Header,
@@ -37,7 +37,7 @@ export const PaymentInfo = ({ modalHidden, setModal }: PropTypes) => {
       <Modal>
         <Header>
           <strong>Use Card Information</strong>
-          <Cancel onClick={setModal}>X</Cancel>
+          <Close onClick={setModal}>X</Close>
         </Header>
         <Group>
           <Info>

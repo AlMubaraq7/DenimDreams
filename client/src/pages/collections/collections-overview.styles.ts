@@ -6,6 +6,44 @@ export const Container = styled.div`
   grid-auto-rows: 500px;
   row-gap: 1.5em;
   column-gap: 1.5rem;
+  @media only screen and (max-width: 1290px) {
+    grid-template-columns: repeat(auto-fill, minmax(275px, 350px));
+    margin-left: 15%;
+    padding: 20px 80px;
+  }
+  @media only screen and (max-width: 1200px) {
+    grid-template-columns: repeat(auto-fill, minmax(275px, 350px));
+    margin-left: 12.5%;
+    padding: 20px;
+  }
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 325px);
+    grid-auto-rows: 400px;
+  }
+  @media only screen and (max-width: 900px) {
+    grid-template-columns: repeat(2, 325px);
+    grid-auto-rows: 400px;
+    margin-left: 6%;
+    column-gap: 1rem;
+  }
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 300px);
+    grid-auto-rows: 400px;
+    margin-left: 4%;
+    column-gap: 1rem;
+  }
+  @media only screen and (max-width: 680px) {
+    grid-template-columns: 300px;
+    grid-auto-rows: 350px;
+    margin-left: 18%;
+    column-gap: 0rem;
+  }
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: 300px;
+    grid-auto-rows: 350px;
+    margin-left: 4%;
+    column-gap: 0rem;
+  }
 `
 export const Boxes = styled.div<{ $imageUrl?: string }>`
   background-size: cover;
@@ -18,6 +56,9 @@ export const Boxes = styled.div<{ $imageUrl?: string }>`
   cursor: pointer;
   &:hover {
     opacity: 0.85;
+  }
+  @media only screen and (max-width: 1024px) {
+    background-size: contain;
   }
 `
 export const TopTitle = styled.span`
@@ -47,6 +88,12 @@ export const NotFoundContainer = styled.div`
 `
 export const NotFoundText = styled.p`
   font-size: 2.75rem;
+  @media only screen and (max-width: 680px) {
+    font-size: 2.25rem;
+  }
+  @media only screen and (max-width: 480px) {
+    font-size: 1.75rem;
+  }
 `
 export const NotFoundBtn = styled.button`
   font-family: "Josefin Sans", sans-serif;
@@ -62,5 +109,11 @@ export const NotFoundBtn = styled.button`
   &:hover {
     background-color: var(--primary);
     color: white;
+  }
+  @media only screen and (max-width: 680px) {
+    padding: 0.5rem 1.5rem;
+  }
+  @media only screen and (max-width: 480px) {
+    font-size: 1rem;
   }
 `

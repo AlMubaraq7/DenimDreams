@@ -1,72 +1,51 @@
-import {
-  Navigation,
-  LinkBox,
-  BoxLogo,
-  Button,
-  ButtonLink,
-  ButtonLinkLogo,
-  CartIcon,
-  SignInIcon,
-  Circle,
-  SignOutIcon,
-  CartContainer,
-  Hamburger,
-  Bar,
-  MobileNavContainer,
-  MobileLinkBox,
-  MobileButtonLink,
-  MobileSpanLink,
-} from "./Navbar.styles"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { toggleCartHidden } from "../../redux/cart/cart.slice"
-import CartDropdown from "../cart-dropdown/cart-dropdown"
-import { signOutStart } from "../../redux/users/user.slice"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { circleVariants } from "../../animation"
-import { useState } from "react"
+import { useAppSelector, useAppDispatch } from "../../app/hooks"
+import {
+  toggleCartHidden,
+  toggleCartHiddenWithPayload,
+} from "../../redux/cart/cart.slice"
+import { signOutStart } from "../../redux/users/user.slice"
+import {
+  Navigation,
+  BoxLogo,
+  ButtonLinkLogo,
+  LinkBox,
+  ButtonLink,
+  SignInIcon,
+  SignOutIcon,
+  Button,
+  CartContainer,
+  CartIcon,
+  Circle,
+  Hamburger,
+  Bar,
+} from "./Navbar.styles"
+import { MobileNav } from "../mobileNav/MobileNav"
+import CartDropdown from "../cart-dropdown/cart-dropdown"
 
-const Navbar = () => {
+export const Navbar = () => {
   const [active, setActive] = useState(false)
   const user = useAppSelector((state) => state.user.user)
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const { cartItems, hidden } = useAppSelector((state) => state.cart)
-  const mobileNavAnimation = {
-    visible: {
-      opacity: 1,
-    },
-    hidden: {
-      opacity: 0,
-      display: "none",
-      transition: {
-        delay: 0.7,
-      },
-    },
+  const setNavActive = (value: boolean) => {
+    setActive(value)
   }
-  const mobileLinkBoxAnimation = {
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-        duration: 0.4,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      scale: 0,
-      transition: {
-        when: "afterChildren",
-        staggerChildren: 0.1,
-        duration: 0.4,
-      },
-    },
+  // WHEN CART IS OPEN AND MOBILE NAV IS CLICKED
+  const onMobileNavClick = () => {
+    if (hidden) {
+      setActive(!active)
+    } else {
+      dispatch(toggleCartHiddenWithPayload(true))
+      setTimeout(() => {
+        setActive(!active)
+      }, 200)
+    }
   }
-  const linkAnimation = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  }
+  // WHEN CART IS OPEN AND SIGN IS CLICKED
   const onSignOut = () => {
     dispatch(signOutStart())
     !hidden && dispatch(toggleCartHidden())
@@ -101,46 +80,20 @@ const Navbar = () => {
             </CartContainer>
           </Button>
         </LinkBox>
-        <Hamburger $active={active} onClick={() => setActive(!active)}>
+        <Hamburger $active={active} onClick={() => onMobileNavClick()}>
           <Bar />
           <Bar />
           <Bar />
         </Hamburger>
       </Navigation>
-      <MobileNavContainer
-        variants={mobileNavAnimation}
-        animate={active ? "visible" : "hidden"}
-      >
-        <MobileLinkBox
-          variants={mobileLinkBoxAnimation}
-          animate={active ? "visible" : "hidden"}
-        >
-          <MobileButtonLink variants={linkAnimation} to="/">
-            Home
-          </MobileButtonLink>
-          <MobileButtonLink variants={linkAnimation} to="/collections">
-            Collections
-          </MobileButtonLink>
-          {!user ? (
-            <MobileButtonLink variants={linkAnimation} to="/sign-in">
-              Sign In
-            </MobileButtonLink>
-          ) : (
-            <MobileSpanLink variants={linkAnimation} onClick={onSignOut}>
-              Sign out
-            </MobileSpanLink>
-          )}
-          <MobileSpanLink
-            variants={linkAnimation}
-            onClick={() =>
-              user ? dispatch(toggleCartHidden()) : navigate("/sign-in")
-            }
-          >
-            Cart
-          </MobileSpanLink>
-        </MobileLinkBox>
-      </MobileNavContainer>
-      {/* <CartDropdown /> */}
+
+      {/* MOBILE NAVIGATION */}
+      <MobileNav
+        active={active}
+        onSignOut={onSignOut}
+        setNavActive={setNavActive}
+      />
+      <CartDropdown />
     </>
   )
 }
