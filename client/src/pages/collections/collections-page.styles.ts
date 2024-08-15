@@ -24,6 +24,21 @@ export const ItemContainer = styled(motion.div)`
   row-gap: 3rem;
   padding: 10px 60px;
   padding-bottom: 50px;
+  @media only screen and (max-width: 680px) {
+    grid-template-columns: repeat(2, minmax(200px, 250px));
+  }
+  @media only screen and (max-width: 550px) {
+    grid-template-columns: 250px;
+    row-gap: 0.5rem;
+    column-gap: 0rem;
+    margin-left: 4%;
+  }
+  @media only screen and (max-width: 400px) {
+    grid-template-columns: 250px;
+    row-gap: 0.5rem;
+    column-gap: 0rem;
+    margin-left: -5%;
+  }
 `
 export const AddToCart = styled(motion.button)`
   text-decoration: none;
@@ -37,6 +52,9 @@ export const AddToCart = styled(motion.button)`
   border: none;
   cursor: pointer;
   display: none;
+  @media only screen and (max-width: 1024px) {
+    display: block;
+  }
 `
 export const ItemImg = styled.div`
   width: 100%;
@@ -45,6 +63,10 @@ export const ItemImg = styled.div`
   background-position: center;
   cursor: pointer;
   transition: all 200ms linear;
+  @media only screen and (max-width: 680px) {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 `
 export const ItemBox = styled(motion.div)`
   display: flex;
@@ -62,6 +84,19 @@ export const ItemBox = styled(motion.div)`
       display: flex;
       opacity: 0.95;
     }
+  }
+  @media only screen and (max-width: 1024px) {
+    &:hover {
+      & ${ItemImg} {
+        opacity: 1;
+      }
+      & ${AddToCart} {
+        display: flex;
+        opacity: 1;
+      }
+    }
+  }
+  @media only screen and (max-width: 680px) {
   }
 `
 export const ItemName = styled.span`
