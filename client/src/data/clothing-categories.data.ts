@@ -417,58 +417,120 @@ const clothingCategories = {
           {
             id: 49,
             name: "Denim Baseball Cap",
-            price: 120,
+            price: 50,
             imageUrl:
               "https://i.ebayimg.com/images/g/6NUAAOSwxnFgo0Kb/s-l1200.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 50,
             name: "Denim Distressed Cap",
-            price: 100,
+            price: 70,
             imageUrl:
               "https://i.ebayimg.com/images/g/28QAAOSwmktfq6Mm/s-l400.jpg?v=1704281850?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 51,
             name: "Denim Bucket Hat",
-            price: 130,
+            price: 65,
             imageUrl:
               "https://theprolificshop.com/cdn/shop/products/FCP_0039.jpg?v=1602443856?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 52,
-            name: "Denim Choker",
-            price: 170,
+            name: "Denim Beret",
+            price: 50,
             imageUrl:
-              "https://ae01.alicdn.com/kf/S4946c85a541d47e99b9e6206e453c611X/Boho-Style-Blue-Denim-Choker-for-Women-Necklace-with-Star-Pattern-Vintage-Ethnic-Handmade-Chocker-Necklaces.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+              "https://ae01.alicdn.com/kf/S6b3b89b95f2d46a28c2f3c2d58eaa3d5S.jpg_640x640Q90.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 53,
             name: "Denim Headband",
-            price: 140,
+            price: 40,
             imageUrl:
               "https://www.lelesadoughi.com/cdn/shop/files/lele-sadoughi-headbands-os-light-denim-headband-36650702241954_600x.jpg?v=1707347570?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 54,
-            name: "Denim Mac Coat",
-            price: 160,
+            name: "Denim Visor",
+            price: 70,
             imageUrl:
-              "https://assets.digitalcontent.marksandspencer.app/image/upload/q_auto,f_auto/SD_01_T49_5065_QQ_X_EC_94?auto=compress&cs=tinysrgb&w=600&lazy=load",
+              "https://www.capwholesalers.com/shop/images/th2_q.39232.0-p_65235_1-4029_d_den.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 55,
-            name: "Denim Car Coat",
-            price: 150,
+            name: "Denim Beanie",
+            price: 80,
             imageUrl:
-              "https://m.someone-life.com/web/product/big/202202/1f4c5486c5b5a6c686e6a47b9c567713.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+              "https://ae01.alicdn.com/kf/S80577a3fdbfe44f0a540fdbbcabc2e554/Denim-Brimless-Beanie-Hat-Adjustable-Jeans-Docker-Hat-Embroidery-Street-Wear-H7EF.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 56,
-            name: "Denim Swing Coat",
-            price: 135,
+            name: "Denim Fedora Hat",
+            price: 100,
             imageUrl:
-              "https://www.rubyroomlifestyle.co.uk/images/jxelza-worker-denim-jacket-p9342-30629_image.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+              "https://m.media-amazon.com/images/I/81zyiXqHvRL._AC_UY1100_.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+        ],
+      },
+      {
+        name: "Body",
+        route: "body",
+        items: [
+          {
+            id: 57,
+            name: "Denim Belt",
+            price: 40,
+            imageUrl:
+              "https://img4.dhresource.com/webp/m/0x0/f3/albu/km/n/02/1b223ab6-cbdd-4eaa-ab7b-a6396c6ae908.png?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 58,
+            name: "Denim Ankle Boots",
+            price: 70,
+            imageUrl:
+              "https://www.hlorenzo.com/cdn/shop/products/SHOE000681-DENIM-10195_grande.jpg?v=1675968518?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 59,
+            name: "Denim Messenger Bag",
+            price: 65,
+            imageUrl:
+              "https://messenger-bags.com/cdn/shop/products/Denim-Messenger-Bag-front_grande.jpg?v=1675008801?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 60,
+            name: "Denim Backpack",
+            price: 80,
+            imageUrl:
+              "https://i5.walmartimages.com/seo/Light-Blue-Denim-Backpack-Casual-Retro-Multifunctional-Storage-Bag-Student-Satchel-Bag-Large-Capacity-Rucksack-for-Students-Girls_149c4387-3581-4ce6-9578-9886a6397a7d.77267e321531a924514fbe161ff8d0e2.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 61,
+            name: "Denim Choker",
+            price: 35,
+            imageUrl:
+              "https://ae01.alicdn.com/kf/S4946c85a541d47e99b9e6206e453c611X/Boho-Style-Blue-Denim-Choker-for-Women-Necklace-with-Star-Pattern-Vintage-Ethnic-Handmade-Chocker-Necklaces.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 62,
+            name: "Denim Brooch",
+            price: 70,
+            imageUrl:
+              "https://cdn.shopify.com/s/files/1/0023/1512/4788/products/50751921.jpg?v=1569273347?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 63,
+            name: "Denim Kimono",
+            price: 100,
+            imageUrl:
+              "https://verseas.co/cdn/shop/products/Full_Body_Denim_Kimono_VAPOUR_BLUE_AW_22_COLLECTION_FASHION_29.jpg?v=1666359699&width=1920?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 64,
+            name: "Denim Shrug",
+            price: 100,
+            imageUrl:
+              "https://i.ebayimg.com/images/g/4RcAAOSwPmhiMDAn/s-l1200.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
         ],
       },

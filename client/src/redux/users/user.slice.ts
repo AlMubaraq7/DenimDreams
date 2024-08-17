@@ -61,6 +61,11 @@ export const userSlice = createSlice({
         error: null,
       }
     },
+    checkUserSession: (state) => {
+      return {
+        ...state,
+      }
+    },
   },
 })
 export const {
@@ -71,5 +76,6 @@ export const {
   signUpSuccess,
   signOutSuccess,
   onFailure,
+  checkUserSession,
 } = userSlice.actions
 export default userSlice.reducer

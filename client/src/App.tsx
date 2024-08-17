@@ -9,14 +9,23 @@ import "./App.css"
 import LocationProvider from "./LocationProvider"
 import { SuccessPage } from "./pages/successPage/successPage"
 import { CancelPage } from "./pages/cancelPage/cancelPage"
+import { Footer } from "./components/footer/Footer"
+import { useEffect } from "react"
+import { useAppDispatch } from "./app/hooks"
+import { checkUserSession } from "./redux/users/user.slice"
 
 function App() {
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(checkUserSession())
+  }, [dispatch])
   return (
     <>
       <Navbar />
       <LocationProvider>
         <RoutesWithAnimation />
       </LocationProvider>
+      <Footer />
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { all, call, put, takeLatest } from "redux-saga/effects"
+import { all, call, put, take, takeLatest } from "redux-saga/effects"
 // import * as action from "./user.actions"
 import {
   onFailure,
@@ -8,6 +8,7 @@ import {
   emailSignInStart,
   googleSignInStart,
   signOutStart,
+  checkUserSession,
 } from "./user.slice"
 import { PayloadAction } from "@reduxjs/toolkit"
 import {
@@ -18,7 +19,11 @@ import {
   signInWithEmailAndPassword,
   User,
 } from "firebase/auth"
-import { auth, createUserDoc } from "../../firebase/firebase.utils"
+import {
+  auth,
+  createUserDoc,
+  getCurrentUser,
+} from "../../firebase/firebase.utils"
 import { getDoc } from "firebase/firestore"
 import { emailSignIn, emailSignUp } from "../../utils"
 
@@ -57,11 +62,13 @@ export function* signInWithEmail({
   payload: { email, password },
 }: PayloadAction<emailSignIn>): Generator {
   try {
-    const userCredential: any = yield signInWithEmailAndPassword(
+    const userCredential: any = yield call(
+      signInWithEmailAndPassword,
       auth,
       email,
       password,
     )
+
     const user: any = yield userCredential.user
     yield getSnapshotFromUserAuth(user)
   } catch (error) {
@@ -77,6 +84,15 @@ export function* signInWithGoogle(): Generator {
     )
     const user = yield userCredential.user
     yield put(signUpSuccess(user))
+  } catch (error) {
+    yield put(onFailure(error))
+  }
+}
+export function* isUserAuthenticated(): Generator {
+  try {
+    const user: any = yield call(getCurrentUser)
+    if (!user) return
+    yield getSnapshotFromUserAuth(user)
   } catch (error) {
     yield put(onFailure(error))
   }
@@ -100,7 +116,9 @@ export function* onEmailSignIn() {
 export function* onGoogleSignIn() {
   yield takeLatest(googleSignInStart.type, signInWithGoogle)
 }
-export function* onCheckUserSession() {}
+export function* onCheckUserSession() {
+  yield takeLatest(checkUserSession.type, isUserAuthenticated)
+}
 export function* onSignOut() {
   yield takeLatest(signOutStart.type, logOut)
 }
@@ -111,5 +129,6 @@ export function* userSagas() {
     call(onEmailSignIn),
     call(onGoogleSignIn),
     call(onSignOut),
+    call(onCheckUserSession),
   ])
 }

@@ -5,6 +5,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   UserCredential,
+  onAuthStateChanged,
 } from "firebase/auth"
 import {
   collection,
@@ -69,10 +70,13 @@ export const signInWithGoogle = () => {
 // GET CURRENT USER
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
-      unsubscribe()
-      resolve(userAuth)
-    }, reject)
+    onAuthStateChanged(
+      auth,
+      (user) => {
+        resolve(user)
+      },
+      reject,
+    )
   })
 }
 

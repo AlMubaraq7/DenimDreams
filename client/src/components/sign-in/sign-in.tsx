@@ -34,21 +34,15 @@ const SignIn = () => {
   type Variant = "Login" | "Register"
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const { user, isAuthenticating, error } = useAppSelector(
-    (state) => state.user,
-  )
+  const { user, isAuthenticating } = useAppSelector((state) => state.user)
   const [variant, setVariant] = useState<Variant>("Login")
   const [passwordMismatch, setPasswordMismatch] = useState<boolean>(false)
   const [disabled, setDisabled] = useState<boolean>(false)
-  const [errorMessage, setErrorMessage] = useState<any>(null)
 
   // HANDLE ROUTING ON USER CHANGE
   const navigateOnUserChange = useCallback((user: UserType) => {
     if (user) {
       navigate("/collections")
-      setErrorMessage(null)
-    } else if (error) {
-      setErrorMessage(error.code)
     }
   }, [])
 
@@ -78,7 +72,6 @@ const SignIn = () => {
     resetField("email")
     resetField("password")
     resetField("confirmPassword")
-    setErrorMessage(null)
   }
   //
   // SIGN IN FUNCTIONS
@@ -197,9 +190,7 @@ const SignIn = () => {
                 </>
               )}
               <ErrorContainer>
-                <FirebaseErrorMessage
-                  errorMessage={errorMessage}
-                ></FirebaseErrorMessage>
+                <FirebaseErrorMessage />
               </ErrorContainer>
               <Button type="submit" $submit disabled={disabled}>
                 {variant === "Login" ? "SIGN IN" : "SIGN UP"}

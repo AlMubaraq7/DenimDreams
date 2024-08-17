@@ -1,19 +1,16 @@
 import { Message } from "./error.styles"
-
-interface ErrorProps {
-  errorMessage: any
-}
-const FirebaseErrorMessage = ({ errorMessage }: ErrorProps) => {
-  console.log(errorMessage)
-  // console.log(errorMessage)
+import { useAppSelector } from "../../app/hooks"
+const FirebaseErrorMessage = () => {
+  const err = useAppSelector((state) => state.user?.error)
+  console.log(err)
   return (
     <>
-      {errorMessage === "auth/invalid-credential" ? (
+      {err && err.code === "auth/invalid-credential" ? (
         <Message>Invalid Credentials</Message>
       ) : (
         <Message></Message>
       )}
-      {errorMessage === "auth/too-many-requests" ? (
+      {err && err.code === "auth/too-many-requests" ? (
         <Message>Try again later</Message>
       ) : (
         <Message></Message>
