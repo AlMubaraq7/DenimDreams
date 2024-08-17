@@ -19,6 +19,12 @@ export const Container = styled.div`
   &[data-variant="Register"] {
     flex-direction: row-reverse;
   }
+  @media only screen and (max-width: 900px) {
+    flex-direction: column-reverse;
+    &[data-variant="Register"] {
+      flex-direction: column-reverse;
+    }
+  }
 `
 export const Form = styled.form`
   display: flex;
@@ -34,6 +40,12 @@ export const FormContainer = styled(motion.div)`
   padding: 1.5rem;
   gap: 0.75rem;
   flex-basis: 100%;
+  @media only screen and (max-width: 550px) {
+    padding: 2.5rem 0.5rem;
+  }
+  @media only screen and (max-width: 480px) {
+    padding: 2.5rem 0rem;
+  }
 `
 export const TextContainer = styled(motion.div)`
   display: flex;
@@ -44,6 +56,15 @@ export const TextContainer = styled(motion.div)`
   padding: 1.5rem;
   gap: 1rem;
   flex-basis: 100%;
+  @media only screen and (max-width: 900px) {
+    padding: 3rem 1.5rem;
+  }
+  @media only screen and (max-width: 550px) {
+    padding: 2.5rem 0.5rem;
+  }
+  @media only screen and (max-width: 480px) {
+    padding: 2.5rem 0rem;
+  }
 `
 export const Paragraph = styled.p<{ $grey?: boolean }>`
   color: ${(props) => (props.$grey ? "darkgrey" : "white")};
@@ -51,10 +72,16 @@ export const Paragraph = styled.p<{ $grey?: boolean }>`
   width: 85%;
   line-height: 1.4;
   text-align: center;
+  @media only screen and (max-width: 480px) {
+    font-size: 0.85rem;
+  }
 `
 export const Heading = styled.h1<{ $blue?: boolean }>`
   color: ${(props) => (props.$blue ? "var(--primary)" : "white")};
   font-size: 2.5rem;
+  @media only screen and (max-width: 480px) {
+    font-size: 2rem;
+  }
 `
 export const Button = styled.button<{ $submit?: boolean }>`
   font-family: "Nunito", sans-serif;
@@ -65,6 +92,10 @@ export const Button = styled.button<{ $submit?: boolean }>`
   color: white;
   cursor: pointer;
   border-radius: 50px;
+  @media only screen and (max-width: 480px) {
+    font-size: 0.75rem;
+    padding: 0.5rem 1.5rem;
+  }
 `
 export const ErrorContainer = styled.div`
   width: 120%;

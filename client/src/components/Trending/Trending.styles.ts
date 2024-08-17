@@ -132,6 +132,7 @@ export const TrendingContainer = styled.div`
   padding: 10px 50px;
   @media only screen and (max-width: 1024px) {
     padding: 0px;
+    margin-left: -1rem;
   }
 `
 export const ItemContainer = styled.div`

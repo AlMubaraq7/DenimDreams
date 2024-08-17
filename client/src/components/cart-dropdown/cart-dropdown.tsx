@@ -43,26 +43,30 @@ const CartDropdown = () => {
       {cartItems.length === 0 ? (
         <CartEmptyMessage>Your cart is empty</CartEmptyMessage>
       ) : (
-        <CartItemsContainer>
-          {cartItems.map((item: ClothingItem) => (
-            <CartItem key={item.id}>
-              <CartItemImgContainer>
-                <CartItemImg src={item.imageUrl} />
-              </CartItemImgContainer>
-              <CartItemDetails>
-                <CartItemName>{item.name}</CartItemName>
-                <CartItemPrice>
-                  {item.quantity} x ${item.price}
-                </CartItemPrice>
-              </CartItemDetails>
-            </CartItem>
-          ))}
-        </CartItemsContainer>
+        <>
+          <CartItemsContainer>
+            {cartItems.map((item: ClothingItem) => (
+              <CartItem key={item.id}>
+                <CartItemImgContainer>
+                  <CartItemImg src={item.imageUrl} />
+                </CartItemImgContainer>
+                <CartItemDetails>
+                  <CartItemName>{item.name}</CartItemName>
+                  <CartItemPrice>
+                    {item.quantity} x ${item.price}
+                  </CartItemPrice>
+                </CartItemDetails>
+              </CartItem>
+            ))}
+          </CartItemsContainer>
+          <CheckoutBtn
+            to="/checkout"
+            onClick={() => dispatch(toggleCartHidden())}
+          >
+            Go to checkout
+          </CheckoutBtn>
+        </>
       )}
-
-      <CheckoutBtn to="/checkout" onClick={() => dispatch(toggleCartHidden())}>
-        Go to checkout
-      </CheckoutBtn>
       <Close onClick={() => dispatch(toggleCartHidden())}>X</Close>
     </Container>
   )

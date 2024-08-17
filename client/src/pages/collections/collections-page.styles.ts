@@ -63,7 +63,7 @@ export const ItemImg = styled.div`
   background-position: center;
   cursor: pointer;
   transition: all 200ms linear;
-  @media only screen and (max-width: 680px) {
+  @media only screen and (max-width: 1024px) {
     background-size: contain;
     background-repeat: no-repeat;
   }

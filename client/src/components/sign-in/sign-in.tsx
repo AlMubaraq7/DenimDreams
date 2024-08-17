@@ -214,7 +214,7 @@ const SignIn = () => {
           >
             <Heading>
               {" "}
-              {variant === "Login" ? "Hello Friend!" : "Welcome Back!"}
+              {variant === "Login" ? "Hello Dreamers!" : "Welcome Back!"}
             </Heading>
             <Paragraph>
               {variant === "Login"

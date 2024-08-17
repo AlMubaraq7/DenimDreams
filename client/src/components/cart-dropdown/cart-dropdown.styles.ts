@@ -5,7 +5,7 @@ export const Container = styled(motion.div)`
   width: 250px;
   max-height: 300px;
   border: 1px solid var(--primary);
-  position: absolute;
+  position: fixed;
   right: 1.5rem;
   z-index: 10;
   background-color: white;
@@ -50,14 +50,17 @@ export const CartItemPrice = styled.span`
   font-size: 0.85rem;
   font-weight: 700;
 `
-export const CartEmptyMessage = styled.span`
+export const CartEmptyMessage = styled.p`
   font-size: 1.25rem;
-  margin: 7.5rem auto;
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-left: 2rem;
 `
 
 export const CheckoutBtn = styled(Link)`
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.2rem;
+  margin-top: 1rem;
   margin-left: 2rem;
   padding: 0.75rem 1.5rem;
   text-align: center;

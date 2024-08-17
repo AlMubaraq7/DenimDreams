@@ -9,9 +9,11 @@ import {
 import { CheckoutButton } from "../../pages/checkout/checkout.styles"
 import { useAppSelector } from "../../app/hooks"
 import { createPaymentSession } from "../../api/payment"
+import { useEffect, useRef } from "react"
+import { useClickOutside } from "../../hooks"
 interface PropTypes {
   modalHidden: boolean
-  setModal: () => void
+  setModal: (value: boolean) => void
 }
 const variants = {
   open: {
@@ -32,12 +34,16 @@ const variants = {
 export const PaymentInfo = ({ modalHidden, setModal }: PropTypes) => {
   const email = useAppSelector((state) => state.user.user?.email) as string
   const cartItems = useAppSelector((state) => state.cart.cartItems)
+  const ref = useRef<HTMLDivElement>(null)
+
+  // CLOSE PAYMENTINFO ON OUTSIDE CLICK
+  useClickOutside(ref, setModal, true)
   return (
     <Container variants={variants} animate={modalHidden ? "closed" : "open"}>
-      <Modal>
+      <Modal ref={ref}>
         <Header>
           <strong>Use Card Information</strong>
-          <Close onClick={setModal}>X</Close>
+          <Close onClick={() => setModal(true)}>X</Close>
         </Header>
         <Group>
           <Info>

@@ -79,7 +79,7 @@ const clothingCategories = {
             name: "Denim Bootcut Jeans",
             price: 50,
             imageUrl:
-              "https://cdn-images.farfetch-contents.com/23/48/84/36/23488436_53446542_480.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+              "https://www.sportsdirect.com/images/imgzoom/65/65197920_xxl.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 10,
@@ -90,17 +90,17 @@ const clothingCategories = {
           },
           {
             id: 11,
-            name: "Denim Tapered Jeans",
+            name: "Denim Cargo Jeans",
             price: 75,
             imageUrl:
-              "https://di2ponv0v5otw.cloudfront.net/posts/2023/06/19/649098f434e25340963a4100/m_6490990424237a58b15da113.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+              "https://d1flfk77wl2xk4.cloudfront.net/Assets/32/332/XL_p0199033232.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 12,
-            name: "Denim Cargo Jeans",
+            name: "Denim Baggy Jeans",
             price: 70,
             imageUrl:
-              "https://d1flfk77wl2xk4.cloudfront.net/Assets/32/332/XL_p0199033232.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+              "https://global.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dw5602f1a1/images/large/A11598_09H57_01_I.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
           },
           {
             id: 13,
@@ -275,7 +275,132 @@ const clothingCategories = {
       "https://barneyandfleur.com/cdn/shop/products/A0725_L-Denim-Trench-Coat-INDIGO_5_1024x_563cff63-d443-4527-96a5-93c5e55e716f_1024x1024@2x.webp?v=1678081610?auto=compress&cs=tinysrgb&w=600",
     route: "outerwears",
     placement: true,
-    subcategories: [],
+    subcategories: [
+      {
+        name: "Jackets",
+        route: "jackets",
+        items: [
+          {
+            id: 33,
+            name: "Classic Denim Jacket",
+            price: 60,
+            imageUrl:
+              "https://images.garmentory.com/images/6667506/large/Dimitri-Denim-Jacket-20220216223128.jpg?1645050690?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 34,
+            name: "Distressed Denim Jacket  ",
+            price: 75,
+            imageUrl:
+              "https://mobile.yoox.com/images/items/16/16330616UR_14_f.jpg?impolicy=crop&width=387&height=490?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 35,
+            name: "Sherpa-Lined Denim Jacket",
+            price: 90,
+            imageUrl:
+              "https://m.media-amazon.com/images/I/71-0y6bKuNL._AC_SX569_.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 36,
+            name: "Cropped Denim Jacket",
+            price: 65,
+            imageUrl:
+              "https://i.etsystatic.com/30934006/r/il/352957/6100593992/il_570xN.6100593992_6ce4.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 37,
+            name: "Denim Varsity Jacket",
+            price: 100,
+            imageUrl:
+              "https://xlarge.com.au/cdn/shop/products/XL035503_LBL_1_xzrdr8.jpg?v=1681688619?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 38,
+            name: "Denim Baseball Jacket",
+            price: 80,
+            imageUrl:
+              "https://m.media-amazon.com/images/I/61sGMKThktL._AC_SX466_.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 39,
+            name: "Hooded Denim Bomber",
+            price: 60,
+            imageUrl:
+              "https://thepremierstore.com/cdn/shop/products/6-6-22-Dime-Hooded-Bomber-Blue-1_1500x.jpg?v=1654522137?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 40,
+            name: "Oversized Denim Jacket",
+            price: 70,
+            imageUrl:
+              "https://cdn.shopify.com/s/files/1/2440/9807/files/8519636418891-PP-PB-01-NJA.jpg?v=1688561613?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+        ],
+      },
+      {
+        name: "Coats",
+        route: "coats",
+        items: [
+          {
+            id: 41,
+            name: "Denim Trench Coat",
+            price: 120,
+            imageUrl:
+              "https://cdna.lystit.com/1040/1300/n/photos/harrods/58b86d8c/jw-anderson-grey-Wool-blend-Trench-Coat.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 42,
+            name: "Denim Cape",
+            price: 100,
+            imageUrl:
+              "https://cdna.lystit.com/400/500/tr/photos/thebs/d7853bf1/sacai-Blue-Denim-Cape.jpeg?v=1704281850?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 43,
+            name: "Denim Duster Coat",
+            price: 130,
+            imageUrl:
+              "https://i5.walmartimages.com/asr/73e36db9-7fed-49b3-a748-ff8f191f2e78.6d1371e65e600a64ff6a782f49c7e8de.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 44,
+            name: "Denim Blazer",
+            price: 170,
+            imageUrl:
+              "https://images.nexusapp.co/assets/76/58/e4/494787555.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 45,
+            name: "Denim Quilted Coat",
+            price: 140,
+            imageUrl:
+              "https://www.gap.com/webcontent/0014/774/488/cn14774488.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 46,
+            name: "Denim Mac Coat",
+            price: 160,
+            imageUrl:
+              "https://assets.digitalcontent.marksandspencer.app/image/upload/q_auto,f_auto/SD_01_T49_5065_QQ_X_EC_94?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 47,
+            name: "Denim Car Coat",
+            price: 150,
+            imageUrl:
+              "https://m.someone-life.com/web/product/big/202202/1f4c5486c5b5a6c686e6a47b9c567713.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 48,
+            name: "Denim Swing Coat",
+            price: 135,
+            imageUrl:
+              "https://www.rubyroomlifestyle.co.uk/images/jxelza-worker-denim-jacket-p9342-30629_image.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+        ],
+      },
+    ],
   },
   accessories: {
     id: 4,
@@ -284,7 +409,70 @@ const clothingCategories = {
       "https://primedia.primark.com/i/primark/denim-acc-topimg?auto=compress&cs=tinysrgb&w=600",
     route: "accessories",
     placement: true,
-    subcategories: [],
+    subcategories: [
+      {
+        name: "Head",
+        route: "head",
+        items: [
+          {
+            id: 49,
+            name: "Denim Baseball Cap",
+            price: 120,
+            imageUrl:
+              "https://i.ebayimg.com/images/g/6NUAAOSwxnFgo0Kb/s-l1200.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 50,
+            name: "Denim Distressed Cap",
+            price: 100,
+            imageUrl:
+              "https://i.ebayimg.com/images/g/28QAAOSwmktfq6Mm/s-l400.jpg?v=1704281850?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 51,
+            name: "Denim Bucket Hat",
+            price: 130,
+            imageUrl:
+              "https://theprolificshop.com/cdn/shop/products/FCP_0039.jpg?v=1602443856?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 52,
+            name: "Denim Choker",
+            price: 170,
+            imageUrl:
+              "https://ae01.alicdn.com/kf/S4946c85a541d47e99b9e6206e453c611X/Boho-Style-Blue-Denim-Choker-for-Women-Necklace-with-Star-Pattern-Vintage-Ethnic-Handmade-Chocker-Necklaces.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 53,
+            name: "Denim Headband",
+            price: 140,
+            imageUrl:
+              "https://www.lelesadoughi.com/cdn/shop/files/lele-sadoughi-headbands-os-light-denim-headband-36650702241954_600x.jpg?v=1707347570?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 54,
+            name: "Denim Mac Coat",
+            price: 160,
+            imageUrl:
+              "https://assets.digitalcontent.marksandspencer.app/image/upload/q_auto,f_auto/SD_01_T49_5065_QQ_X_EC_94?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 55,
+            name: "Denim Car Coat",
+            price: 150,
+            imageUrl:
+              "https://m.someone-life.com/web/product/big/202202/1f4c5486c5b5a6c686e6a47b9c567713.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+          {
+            id: 56,
+            name: "Denim Swing Coat",
+            price: 135,
+            imageUrl:
+              "https://www.rubyroomlifestyle.co.uk/images/jxelza-worker-denim-jacket-p9342-30629_image.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+          },
+        ],
+      },
+    ],
   },
 }
 

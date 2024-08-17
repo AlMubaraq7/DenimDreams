@@ -8,6 +8,7 @@ import {
 import { useNavigate } from "react-router-dom"
 import { useAppSelector, useAppDispatch } from "../../app/hooks"
 import { toggleCartHiddenWithPayload } from "../../redux/cart/cart.slice"
+import { useClickOutside } from "../../hooks"
 interface MobileNavProps {
   active: boolean
   setNavActive: (value: boolean) => void
@@ -32,18 +33,8 @@ export const MobileNav = ({
   }
 
   // CLOSE NAV ON OUTSIDE CLICK
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setNavActive(false)
-      }
-    }
+  useClickOutside(navRef, setNavActive, false)
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [navRef])
   const mobileNavAnimation = {
     visible: {
       opacity: 1,

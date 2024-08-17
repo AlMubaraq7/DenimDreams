@@ -1,11 +1,11 @@
 import Hero from "../../components/Hero/Hero.component"
 import Trending from "../../components/Trending/Trending.component"
 import { useEffect } from "react"
-// import clothingCategories from "./data/clothing-categories.data"
+// import clothingCategories from "../../data/clothing-categories.data"
 import { fetchCollectionStart } from "../../redux/items/item.slice"
 import { useAppDispatch } from "../../app/hooks"
 import { Helmet } from "react-helmet-async"
-// import { addCollectionsAndItems } from "./firebase/firebase.utils"
+// import { addCollectionsAndItems } from "../../firebase/firebase.utils"
 
 const Homepage = () => {
   const dispatch = useAppDispatch()

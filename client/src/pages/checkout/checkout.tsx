@@ -33,8 +33,8 @@ const Checkout = () => {
     0,
   )
   const [modalHidden, setModalHidden] = useState<boolean>(true)
-  const setModal = () => {
-    setModalHidden(!modalHidden)
+  const setModal = (value: boolean) => {
+    setModalHidden(value)
   }
 
   return (
@@ -68,8 +68,10 @@ const Checkout = () => {
             </ItemsContainer>
             <TotalContainer>
               <ButtonContainer>
-                <ButtonLink to="/collections">Continue Shopping</ButtonLink>
-                <CheckoutButton onClick={setModal}>Checkout</CheckoutButton>
+                <ButtonLink to="/collections">Collections</ButtonLink>
+                <CheckoutButton onClick={() => setModal(false)}>
+                  Checkout
+                </CheckoutButton>
               </ButtonContainer>
               <AmountBox>
                 <SubTotalBox>

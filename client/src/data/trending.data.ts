@@ -1,9 +1,9 @@
 const trendingItems = [
   {
     id: 1,
-    name: "Classic Denim Jacket",
+    name: "Denim Jacket",
     category: "Jackets",
-    price: 45.99,
+    price: 60,
     imageUrl:
       "https://images.garmentory.com/images/6667506/large/Dimitri-Denim-Jacket-20220216223128.jpg?1645050690?auto=compress&cs=tinysrgb&w=600&lazy=load",
     description: "Comfortable and stylish striped denim jacket.",
@@ -12,9 +12,9 @@ const trendingItems = [
   },
   {
     id: 2,
-    name: "Mini Skirt",
+    name: "Denim Mini Skirt",
     category: "Bottoms",
-    price: 39.99,
+    price: 55,
     imageUrl:
       "https://www.gigibelle.com/cdn/shop/files/Tahlia-Denim-Mini-Skirt-Ghost_700x_a6988e2c-7024-4cd3-bf38-22528f6b8846_800x.webp?v=1698805999?auto=compress&cs=tinysrgb&w=600&lazy=load",
     description: "Classic high-waisted skinny jeans for a trendy look.",
@@ -23,9 +23,9 @@ const trendingItems = [
   },
   {
     id: 3,
-    name: "Baggy High Cargo Jeans",
+    name: "Denim Cargo Jeans",
     category: "Jackets",
-    price: 89.95,
+    price: 75,
     imageUrl:
       "https://d1flfk77wl2xk4.cloudfront.net/Assets/32/332/XL_p0199033232.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
     description: "Stylish vintage leather jacket for a rugged appeal.",

@@ -26,16 +26,33 @@ export const Header = styled.div`
 export const ItemsContainer = styled.div`
   height: 300px;
   overflow: scroll;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 export const Product = styled.div`
   width: 42%;
+  @media only screen and (max-width: 480px) {
+    font-size: 0.85rem;
+    width: 35%;
+  }
 `
 export const Quantity = styled.div`
   width: 27%;
+  @media only screen and (max-width: 480px) {
+    font-size: 0.85rem;
+    width: 32%;
+    text-align: center;
+  }
 `
 export const Price = styled.div`
   width: 27%;
+  @media only screen and (max-width: 480px) {
+    font-size: 0.85rem;
+    width: 32%;
+    text-align: center;
+  }
 `
 export const Total = styled.span`
   align-self: flex-end;
@@ -46,6 +63,9 @@ export const TotalContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
+  @media only screen and (max-width: 480px) {
+    font-size: 0.85rem;
+  }
 `
 export const ButtonContainer = styled.div`
   display: flex;
@@ -78,6 +98,12 @@ export const TextBold = styled.span`
 export const TextNormal = styled.span``
 export const TotalNormal = styled(TextNormal)`
   font-size: 1.3rem;
+  media only screen and (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+  @media only screen and (max-width: 480px) {
+    font-size: 1.15rem;
+  }
 `
 export const ButtonLink = styled(Link)`
   padding: 0.5rem 1rem;
