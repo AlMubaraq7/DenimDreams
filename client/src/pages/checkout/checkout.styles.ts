@@ -12,6 +12,7 @@ export const Container = styled(motion.div)`
   padding: 1rem 1.5rem;
   position: relative;
   overflow-x: hidden;
+  height: 100vh;
 `
 
 export const Header = styled.div`
@@ -134,5 +135,8 @@ export const Cancelled = styled.span`
 `
 export const CartEmptyMessage = styled.span`
   font-size: 2rem;
-  margin-top: 9rem;
+  margin-top: 13rem;
+  @media only screen and (max-width: 500px) {
+    font-size: 1.25rem;
+  }
 `
