@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
   width: inherit;
-  margin-top: 4rem;
+  margin-top: 5rem;
   background-color: var(--primary);
   color: white;
   display: flex;

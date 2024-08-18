@@ -20,8 +20,8 @@ paymentRouter.post("/create-payment-session", async (req, res) => {
     payment_method_types: ["card"],
     line_items: lineItems,
     mode: "payment",
-    success_url: "https://denim-dreams.vercel.app/checkout/success",
-    cancel_url: "https://denim-dreams.vercel.app/checkout/cancelled",
+    success_url: `${req.headers.origin}/checkout/success`,
+    cancel_url: `${req.headers.origin}/checkout/cancelled`,
   });
   res.json({ id: session?.id });
 });

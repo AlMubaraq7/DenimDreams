@@ -117,19 +117,19 @@ const SignIn = () => {
             <Heading $blue>
               {variant === "Login" ? "Sign in" : "Create Account"}
             </Heading>
-            <SocialButtons>
+            {/* <SocialButtons>
               <IconContainer onClick={() => googleSignInAndNavigate()}>
                 <GoogleIcon />
               </IconContainer>
               <IconContainer>
                 <GithubIcon />
               </IconContainer>
-            </SocialButtons>
-            <Paragraph $grey>
+            </SocialButtons> */}
+            {/* <Paragraph $grey>
               {variant === "Login"
                 ? "or use your email"
                 : "or use your email for registration"}
-            </Paragraph>
+            </Paragraph> */}
             <Form>
               <Input
                 id="email"
