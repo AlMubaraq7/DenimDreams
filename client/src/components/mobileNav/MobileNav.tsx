@@ -102,6 +102,9 @@ export const MobileNav = ({
         >
           Cart
         </MobileSpanLink>
+        <MobileButtonLink variants={linkAnimation} to="/checkout">
+          <span onClick={() => setNavActive(false)}>Checkout</span>
+        </MobileButtonLink>
       </MobileLinkBox>
     </MobileNavContainer>
   )

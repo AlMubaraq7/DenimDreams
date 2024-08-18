@@ -69,6 +69,8 @@ export const CheckoutBtn = styled(Link)`
   letter-spacing: 0.5px;
   color: white;
   background-color: var(--primary);
+  @media only screen and (max-width: 480px) {
+  }
 `
 export const Close = styled.span`
   position: fixed;

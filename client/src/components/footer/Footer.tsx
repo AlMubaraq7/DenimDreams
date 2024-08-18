@@ -13,7 +13,8 @@ import {
 } from "./Footer.styles"
 
 export const Footer = () => {
-  const user = useAppSelector((state) => state.user.user)
+  const { user, isAuthenticating } = useAppSelector((state) => state.user)
+  const { isFetching } = useAppSelector((state) => state.items)
   const dispatch = useAppDispatch()
   const { hidden } = useAppSelector((state) => state.cart)
   const onSignOut = () => {
@@ -21,26 +22,29 @@ export const Footer = () => {
     !hidden && dispatch(toggleCartHidden())
   }
   return (
-    <Container>
-      <LinkBox>
-        <ButtonLink to="/">Home</ButtonLink>
-        <ButtonLink to="/collections">Collections</ButtonLink>
+    <>
+      {isAuthenticating || isFetching ? null : (
+        <Container>
+          <LinkBox>
+            <ButtonLink to="/">Home</ButtonLink>
+            <ButtonLink to="/collections">Collections</ButtonLink>
 
-        {!user ? (
-          <ButtonLink to="/sign-in">Sign In</ButtonLink>
-        ) : (
-          <SignOut onClick={onSignOut}>Sign Out</SignOut>
-        )}
-      </LinkBox>
-      <LogoBox>
-        <LogoLink to="/">DenimDreams</LogoLink>
-      </LogoBox>
-      <CopyRightBox>
-        <CopyRightText>Copyright &#169; 2024, Al-Mubaraq Momoh</CopyRightText>
-      </CopyRightBox>
-    </Container>
+            {!user ? (
+              <ButtonLink to="/sign-in">Sign In</ButtonLink>
+            ) : (
+              <SignOut onClick={onSignOut}>Sign Out</SignOut>
+            )}
+          </LinkBox>
+          <LogoBox>
+            <LogoLink to="/">DenimDreams</LogoLink>
+          </LogoBox>
+          <CopyRightBox>
+            <CopyRightText>
+              Copyright &#169; 2024, Al-Mubaraq Momoh
+            </CopyRightText>
+          </CopyRightBox>
+        </Container>
+      )}
+    </>
   )
-}
-function dispatch(arg0: any) {
-  throw new Error("Function not implemented.")
 }
