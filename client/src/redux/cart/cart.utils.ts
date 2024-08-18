@@ -1,9 +1,7 @@
-import { ClothingCategory } from "../../utils"
-
-export const addItem = (items, itemToAdd) => {
-  const existingItem = items.find((item) => item.id === itemToAdd.id)
+export const addItem = (items: any, itemToAdd: any) => {
+  const existingItem = items.find((item: any) => item.id === itemToAdd.id)
   if (existingItem) {
-    return items.map((item) =>
+    return items.map((item: any) =>
       item.id === itemToAdd.id
         ? { ...item, quantity: item.quantity + 1 }
         : item,
@@ -12,12 +10,12 @@ export const addItem = (items, itemToAdd) => {
     return [...items, { ...itemToAdd, quantity: 1 }]
   }
 }
-export const reduceItem = (items, itemToRemove) => {
-  const existingItem = items.find((item) => item.id === itemToRemove.id)
+export const reduceItem = (items: any, itemToRemove: any) => {
+  const existingItem = items.find((item: any) => item.id === itemToRemove.id)
   if (existingItem.quantity === 1) {
-    return items.filter((item) => item.id !== itemToRemove.id)
+    return items.filter((item: any) => item.id !== itemToRemove.id)
   } else {
-    return items.map((item) =>
+    return items.map((item: any) =>
       item.id === itemToRemove.id
         ? { ...item, quantity: item.quantity - 1 }
         : item,
@@ -25,10 +23,10 @@ export const reduceItem = (items, itemToRemove) => {
   }
 }
 
-export const clearItem = (items, itemToRemove) => {
-  const existingItem = items.find((item) => item.id === itemToRemove.id)
+export const clearItem = (items: any, itemToRemove: any) => {
+  const existingItem = items.find((item: any) => item.id === itemToRemove.id)
   if (existingItem) {
-    return items.filter((item) => item.id !== itemToRemove.id)
+    return items.filter((item: any) => item.id !== itemToRemove.id)
   } else {
     return
   }
