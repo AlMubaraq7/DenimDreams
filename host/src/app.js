@@ -10,6 +10,6 @@ app.use(
 );
 app.use(paymentRouter);
 app.get("/", (req, res) => {
-  res.send(<h1>DenimDreams</h1>);
+  res.send("<h1>DenimDreams</h1>");
 });
 module.exports = { app };
