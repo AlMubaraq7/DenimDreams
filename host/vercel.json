@@ -11,5 +11,12 @@
       "src": "/(.*)",
       "dest": "server.js"
     }
+  ],
+  "redirects": [
+    {
+      "source": "https://denim-dreams.vercel.app/checkout/success",
+      "destination": "https://denim-dreams.vercel.app/",
+      "permanent": true
+    }
   ]
 }
