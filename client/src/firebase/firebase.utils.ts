@@ -26,7 +26,6 @@ const config = {
   appId: "1:349572030395:web:dcec0b37e9a53302f0ee9e",
   measurementId: "G-LSWT3NN7YN",
 }
-console.log(import.meta.env.VITE_FIREBASE_API_KEY)
 const app = initializeApp(config)
 export const firestore = getFirestore()
 export const auth = getAuth(app)
