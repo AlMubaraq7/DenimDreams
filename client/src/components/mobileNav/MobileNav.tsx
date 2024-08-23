@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import {
   MobileButtonLink,
   MobileLinkBox,
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom"
 import { useAppSelector, useAppDispatch } from "../../app/hooks"
 import { toggleCartHiddenWithPayload } from "../../redux/cart/cart.slice"
 import { useClickOutside } from "../../hooks"
+import { AnimatePresence } from "framer-motion"
 interface MobileNavProps {
   active: boolean
   setNavActive: (value: boolean) => void
@@ -24,6 +25,7 @@ export const MobileNav = ({
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const navRef = useRef<HTMLDivElement>(null)
+
   // WHEN CART IS CLICKED AND NAV IS OPEN
   const onCartClick = () => {
     setNavActive(false)
@@ -41,7 +43,7 @@ export const MobileNav = ({
     },
     hidden: {
       opacity: 0,
-      display: "none",
+      // display: "none",
       transition: {
         delay: 0.7,
       },
@@ -72,40 +74,49 @@ export const MobileNav = ({
     visible: { opacity: 1, y: 0 },
   }
   return (
-    <MobileNavContainer
-      variants={mobileNavAnimation}
-      animate={active ? "visible" : "hidden"}
-    >
-      <MobileLinkBox
-        ref={navRef}
-        variants={mobileLinkBoxAnimation}
-        animate={active ? "visible" : "hidden"}
-      >
-        <MobileButtonLink variants={linkAnimation} to="/">
-          <span onClick={() => setNavActive(false)}>Home</span>
-        </MobileButtonLink>
-        <MobileButtonLink variants={linkAnimation} to="/collections">
-          <span onClick={() => setNavActive(false)}>Collections</span>
-        </MobileButtonLink>
-        {!user ? (
-          <MobileButtonLink variants={linkAnimation} to="/sign-in">
-            <span onClick={() => setNavActive(false)}>Sign In</span>
-          </MobileButtonLink>
-        ) : (
-          <MobileSpanLink variants={linkAnimation} onClick={onSignOut}>
-            Sign out
-          </MobileSpanLink>
-        )}
-        <MobileSpanLink
-          variants={linkAnimation}
-          onClick={() => (user ? onCartClick() : navigate("/sign-in"))}
+    <AnimatePresence>
+      {active && (
+        <MobileNavContainer
+          $active={active}
+          variants={mobileNavAnimation}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
         >
-          Cart
-        </MobileSpanLink>
-        <MobileButtonLink variants={linkAnimation} to="/checkout">
-          <span onClick={() => setNavActive(false)}>Checkout</span>
-        </MobileButtonLink>
-      </MobileLinkBox>
-    </MobileNavContainer>
+          <MobileLinkBox
+            ref={navRef}
+            variants={mobileLinkBoxAnimation}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
+            <MobileButtonLink variants={linkAnimation} to="/">
+              <span onClick={() => setNavActive(false)}>Home</span>
+            </MobileButtonLink>
+            <MobileButtonLink variants={linkAnimation} to="/collections">
+              <span onClick={() => setNavActive(false)}>Collections</span>
+            </MobileButtonLink>
+            {!user ? (
+              <MobileButtonLink variants={linkAnimation} to="/sign-in">
+                <span onClick={() => setNavActive(false)}>Sign In</span>
+              </MobileButtonLink>
+            ) : (
+              <MobileSpanLink variants={linkAnimation} onClick={onSignOut}>
+                Sign out
+              </MobileSpanLink>
+            )}
+            <MobileSpanLink
+              variants={linkAnimation}
+              onClick={() => (user ? onCartClick() : navigate("/sign-in"))}
+            >
+              Cart
+            </MobileSpanLink>
+            <MobileButtonLink variants={linkAnimation} to="/checkout">
+              <span onClick={() => setNavActive(false)}>Checkout</span>
+            </MobileButtonLink>
+          </MobileLinkBox>
+        </MobileNavContainer>
+      )}
+    </AnimatePresence>
   )
 }

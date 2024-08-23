@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-export const Container = styled(motion.div)`
+export const Container = styled(motion.div)<{ $hidden: boolean }>`
   width: 250px;
   max-height: 300px;
   border: 1px solid var(--primary);
@@ -9,7 +9,7 @@ export const Container = styled(motion.div)`
   right: 1.5rem;
   z-index: 10;
   background-color: white;
-  display: flex;
+  display: display: ${(props) => (props.$hidden ? "flex" : "none")};;
   flex-direction: column;
   padding: 1.25rem 1rem;
   overflow: scroll;
@@ -24,7 +24,7 @@ export const CartItemsContainer = styled.div`
   height: 75%;
   overflow: scroll;
 `
-export const CartItem = styled(motion.div)`
+export const CartItem = styled.div`
   display: flex;
   gap: 0.5rem;
 `

@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { ButtonLink } from "../navbar/Navbar.styles"
 import styled from "styled-components"
 
-export const MobileNavContainer = styled(motion.div)`
+export const MobileNavContainer = styled(motion.div)<{ $active: boolean }>`
   position: fixed;
   width: 100%;
   z-index: 13;
@@ -14,7 +14,7 @@ export const MobileNavContainer = styled(motion.div)`
   height: 100vh;
   backdrop-filter: blur(8px);
   @media only screen and (max-width: 768px) {
-    display: flex;
+    display: ${(props) => (props.$active ? "flex" : "none")};
   }
 `
 export const MobileLinkBox = styled(motion.div)`

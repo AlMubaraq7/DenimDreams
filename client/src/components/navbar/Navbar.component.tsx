@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { circleVariants } from "../../animation"
 import { useAppSelector, useAppDispatch } from "../../app/hooks"
@@ -34,7 +34,7 @@ export const Navbar = () => {
   const setNavActive = (value: boolean) => {
     setActive(value)
   }
-  // WHEN CART IS OPEN AND MOBILE NAV IS CLICKED
+
   const onMobileNavClick = () => {
     if (hidden) {
       setActive(!active)
@@ -45,6 +45,7 @@ export const Navbar = () => {
       }, 200)
     }
   }
+
   // WHEN CART IS OPEN AND SIGN IS CLICKED
   const onSignOut = () => {
     dispatch(signOutStart())
@@ -88,11 +89,13 @@ export const Navbar = () => {
       </Navigation>
 
       {/* MOBILE NAVIGATION */}
+
       <MobileNav
         active={active}
         onSignOut={onSignOut}
         setNavActive={setNavActive}
       />
+
       <CartDropdown />
     </>
   )
